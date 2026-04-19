@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthoScan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌱 EthoScan</h1>
+        <p style="font-size: 20px; font-weight: bold; ">Escaneador de ingredientes</p>
+        <p>Aponte a câmera para a lista de ingredientes do produto</p>
+
+        <div class="camera-box">
+            <video id="video" autoplay playsinline style="display:none; width:100%; border-radius:10px;"></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            
+            <img id="foto-preview" src="" alt="Foto do rótulo" style="display:none; width:100%; max-width:400px; border-radius:10px; margin: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+        </div>
+
+        <div class="controls">
+            <button id="btn-scan" class="btn">Abrir Câmera</button>
+            <button id="btn-capture" class="btn" style="display:none;">Tirar Foto</button>
+            
+            <div style="margin-top: 10px;">
+                <label for="file-upload" class="btn-alt">Escolher da Galeria</label>
+                <input type="file" id="file-upload" accept="image/*" style="display:none;">
+            </div>
+        </div>
+
+        <div id="status" class="resultado">Aguardando comando...</div>
+
+        <div style="font-size: 0.7em; color: #666; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px; text-align: left;">
+            <strong>⚠️ AVISO IMPORTANTE:</strong><br>
+            Este site é uma ferramenta de auxílio e utiliza inteligência de leitura de texto (Google Vision), que está sujeita a erros (especialmente em fotos ruins ou letras muito pequenas). O resultado "Parece ser Vegano" NÃO garante que o produto seja 100% vegano. Sempre confira a lista de ingredientes manualmente e procure pelo selo vegano oficial do fabricante. Não nos responsabilizamos por escolhas feitas com base nos resultados do scanner.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
