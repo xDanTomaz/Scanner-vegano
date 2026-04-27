@@ -101,7 +101,7 @@ function processarIngredientes(texto) {
     // 🛡️ 3. FILTRO DE RUÍDO NUTRICIONAL (LIMPEZA DE TABELA)
     // Se a linha contiver termos nutricionais, ela é descartada para não gerar falsos negativos
     const termosTabela = [
-        "GORDURAS", "SODIO", "PROTEINAS", "CARBOIDRATOS", 
+        "GORDURAS", "GORDURAS TOTAIS","GORDURAS SATURADAS", "SODIO", "PROTEINAS", "CARBOIDRATOS", 
         "VALOR", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "VD", "%"
     ];
 
