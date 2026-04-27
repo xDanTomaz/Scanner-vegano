@@ -78,51 +78,66 @@ async function analisarComGoogleVision(base64Image) {
 function processarIngredientes(texto) {
     const textoLimpo = normalizarParaBusca(texto);
     
-    // TRAVA 1: Localizar início real (Ignora Tabela Nutricional acima)
+    // 1. LOCALIZAR O INÍCIO (Garante que ignoramos títulos e slogans no topo)
     const marcadorInicio = "INGREDIENTES";
     const indiceInicio = textoLimpo.indexOf(marcadorInicio);
 
     if (indiceInicio === -1) {
-        status.innerHTML = `<div style="padding:20px; background:#666; color:#fff; border-radius:15px;"><strong>🔍 LISTA NÃO LOCALIZADA</strong><p style="font-size:0.8em; margin-top:5px;">Aponte para a palavra 'Ingredientes'.</p></div>`;
+        status.innerHTML = `<div style="padding:20px; background:#666; border-radius:15px;"><strong>🔍 LISTA NÃO LOCALIZADA</strong></div>`;
         return;
     }
 
-    // TRAVA 2: Definir fim da leitura (SAC, Fabricação, etc)
     let textoFocado = textoLimpo.substring(indiceInicio);
-    const marcadoresFim = ["FABRICADO POR","VALOR ENERGÉTICO","VALOR ENERGETICO", "DISTRIBUIDO", "INDUSTRIA BRASILEIRA", "CONSERVACAO", "VALOR ENERGETICO", "SAC:", "VALIDADE"];
+
+    // 2. DEFINIR O FIM DA LEITURA
+    const marcadoresFim = ["CONSERVACAO", "VALOR ENERGETICO", "PRODUZIDO POR", "SAC:", "VALIDADE", "PESO"];
     let indiceFim = textoFocado.length;
     marcadoresFim.forEach(m => {
         const idx = textoFocado.indexOf(m);
-        if (idx !== -1 && idx < indiceFim && idx > 15) indiceFim = idx;
+        if (idx !== -1 && idx < indiceFim && idx > 10) indiceFim = idx;
     });
     textoFocado = textoFocado.substring(0, indiceFim);
 
-    // TRAVA 3: Filtro Anti-Ruído de Tabela Nutricional (Linhas com %, kcal, etc)
+    // 🛡️ 3. FILTRO DE RUÍDO NUTRICIONAL (LIMPEZA DE TABELA)
+    // Se a linha contiver termos nutricionais, ela é descartada para não gerar falsos negativos
+    const termosTabela = [
+        "GORDURAS", "SODIO", "PROTEINAS", "CARBOIDRATOS", 
+        "VALOR", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "VD", "%"
+    ];
+
     const linhas = textoFocado.split('\n');
-    const palavrasTabela = ["VD", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "%"];
-    const textoFiltrado = linhas.filter(l => !palavrasTabela.some(p => l.includes(p))).join(' ');
+    const textoFinalFiltrado = linhas.map(linha => {
+        // Se a linha tiver palavras da tabela nutricional, limpamos ela
+        let linhaLimpa = linha;
+        termosTabela.forEach(termo => {
+            if (linhaLimpa.includes(termo)) {
+                // Remove o termo e o que vier depois dele na mesma linha
+                linhaLimpa = linhaLimpa.split(termo)[0];
+            }
+        });
+        return linhaLimpa;
+    }).join(' ');
 
-    // TRAVA 4: Separar "Pode Conter"
-    const marcadoresAviso = ["PODE CONTER", "ALERGICOS", "TRACOS DE"];
-    let pontoDeCorte = textoFiltrado.length;
-    marcadoresAviso.forEach(m => {
-        const idx = textoFiltrado.indexOf(m);
-        if (idx !== -1 && idx < pontoDeCorte) pontoDeCorte = idx;
-    });
+    // 4. SEPARAR "PODE CONTER"
+    const marcadorAviso = "PODE CONTER";
+    const indiceAviso = textoFinalFiltrado.indexOf(marcadorAviso);
+    
+    let ingredientesReais = textoFinalFiltrado;
+    let alertasTracos = "";
 
-    const ingredientesReais = textoFiltrado.substring(0, pontoDeCorte);
-    const alertasTracos = textoFiltrado.substring(pontoDeCorte);
+    if (indiceAviso !== -1) {
+        ingredientesReais = textoFinalFiltrado.substring(0, indiceAviso);
+        alertasTracos = textoFinalFiltrado.substring(indiceAviso);
+    }
 
     let encontrados = [];
 
-    // TRAVA 5: Filtro de Choque (Fatais)
+    // 5. FILTRO DE CHOQUE (Fatais)
     const fatais = [
-        { nome: "LEITE", desc: "Origem animal mamífera." },
-        { nome: "LACTOSE", desc: "Açúcar do leite." },
+        { nome: "LEITE", desc: "Origem animal." },
         { nome: "OVOS", desc: "Origem animal." },
-        { nome: "MEL", desc: "Origem animal." },
-        { nome: "CARNE", desc: "Tecido animal." },
-        { nome: "SORO", desc: "Derivado de leite." }
+        { nome: "CARNE", desc: "Origem animal." },
+        { nome: "MEL", desc: "Origem animal." }
     ];
 
     fatais.forEach(f => {
@@ -130,11 +145,11 @@ function processarIngredientes(texto) {
         if (regex.test(ingredientesReais)) {
             encontrados.push({ nome: f.nome, classificacao: "NAO VEGANO", descricao: f.desc });
         } else if (regex.test(alertasTracos)) {
-            encontrados.push({ nome: f.nome, classificacao: "ORIGEM AMBIGUA", descricao: "Aviso de traços (contaminação cruzada)." });
+            encontrados.push({ nome: f.nome, classificacao: "ORIGEM AMBIGUA", descricao: "Aviso de traços (contaminação)." });
         }
     });
 
-    // TRAVA 6: Comparação CSV
+    // 6. COMPARAÇÃO COM CSV (No texto limpo de ruídos nutricionais)
     bancoDadosVegano.forEach(item => {
         const nomeCSV = normalizarParaBusca(item.nome);
         const regexCSV = new RegExp(`\\b${nomeCSV}\\b`, 'gi');
@@ -145,7 +160,6 @@ function processarIngredientes(texto) {
 
     exibirResultadoVeredito(encontrados, ingredientesReais);
 }
-
 // ==========================================
 // 5. EXIBIÇÃO (HIERARQUIA DE CORES)
 // ==========================================
