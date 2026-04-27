@@ -165,32 +165,19 @@ function processarIngredientes(texto) {
 // ==========================================
 function exibirResultadoVeredito(lista, textoExibicao) {
     const limpar = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase() : "";
-
-    // 🛡️ CORREÇÃO DO RESUMO: Limpa o texto para mostrar apenas um trecho legível
-    let resumoLimpo = textoExibicao 
-        ? textoExibicao.substring(0, 100).replace(/\n/g, " ").trim() 
-        : "Trecho não identificado";
-
-    // Monta o cabeçalho com o texto lido (O que você queria que voltasse)
-    let htmlHeader = `
-        <div style="font-size:0.7em; color:#777; margin-bottom:10px; text-align:center; font-style:italic;">
-            Lido: "${resumoLimpo}..."
-        </div>`;
-
     const temNaoVegano = lista.some(i => limpar(i.classificacao).includes("NAO"));
     const temAmbiguo = lista.some(i => limpar(i.classificacao).includes("AMBIGUA") || limpar(i.classificacao).includes("DUBIO"));
     
     let htmlSelo = "";
 
     if (temNaoVegano) {
-        htmlSelo = `<div style="background:#b71c1c; color:#fff; padding:20px; border-radius:15px; border:5px solid #801111; margin-bottom:20px;"><strong>❌ PRODUTO NÃO VEGANO</strong></div>`;
+        htmlSelo = `<div style="background:#b71c1c; color:#fff; padding:25px; border-radius:15px; border:5px solid #801111; margin-bottom:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);"><strong>❌ PRODUTO NÃO VEGANO</strong></div>`;
     } else if (temAmbiguo) {
-        htmlSelo = `<div style="background:#f57f17; color:#fff; padding:20px; border-radius:15px; border:5px solid #c86612; margin-bottom:20px;"><strong>⚠️ ORIGEM AMBÍGUA</strong></div>`;
+        htmlSelo = `<div style="background:#f57f17; color:#fff; padding:25px; border-radius:15px; border:5px solid #c86612; margin-bottom:20px;"><strong>⚠️ ORIGEM AMBÍGUA</strong></div>`;
     } else {
-        htmlSelo = `<div style="background:#2d5a27; color:#fff; padding:20px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;"><strong>🌱 PARECE VEGANO</strong></div>`;
+        htmlSelo = `<div style="background:#2d5a27; color:#fff; padding:25px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;"><strong>🌱 PARECE VEGANO</strong></div>`;
     }
 
-    // Gerar os cards dos ingredientes
     let htmlCards = lista.map(item => {
         const cNorm = limpar(item.classificacao);
         let cor = cNorm.includes("NAO") ? "#b71c1c" : (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO") ? "#f57f17" : "#2d5a27");
@@ -198,16 +185,15 @@ function exibirResultadoVeredito(lista, textoExibicao) {
 
         return `
             <div style="border-left:10px solid ${cor}; background:#fff; padding:15px; margin-bottom:12px; border-radius:0 12px 12px 0; text-align:left; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <strong style="color:${cor}; font-size:1.1em;">${item.nome}</strong>
-                    <span style="background:${cor}; color:#fff; font-size:0.6em; padding:3px 8px; border-radius:5px; font-weight:bold;">${label}</span>
+                <div style="display:flex; justify-content:space-between;">
+                    <strong style="color:${cor}">${item.nome}</strong>
+                    <span style="background:${cor}; color:#fff; font-size:10px; padding:3px 8px; border-radius:5px; font-weight:bold;">${label}</span>
                 </div>
-                <p style="color:#555; font-size:0.85em; margin-top:8px; line-height:1.4;">${item.descricao}</p>
+                <p style="color:#555; font-size:0.9em; margin-top:8px;">${item.descricao}</p>
             </div>`;
     }).join('');
 
-    // Juntamos o Header (texto lido), o Selo e os Cards
-    status.innerHTML = htmlHeader + htmlSelo + htmlCards;
+    status.innerHTML = htmlSelo + htmlCards;
 }
 
 // ==========================================
