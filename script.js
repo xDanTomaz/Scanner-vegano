@@ -89,7 +89,7 @@ function processarIngredientes(texto) {
 
     // TRAVA 2: Definir fim da leitura (SAC, Fabricação, etc)
     let textoFocado = textoLimpo.substring(indiceInicio);
-    const marcadoresFim = ["FABRICADO POR","ENERGÉTICO", "DISTRIBUIDO", "INDUSTRIA BRASILEIRA", "CONSERVACAO", "VALOR ENERGETICO", "SAC:", "VALIDADE"];
+    const marcadoresFim = ["FABRICADO POR","VALOR ENERGÉTICO","VALOR ENERGETICO", "DISTRIBUIDO", "INDUSTRIA BRASILEIRA", "CONSERVACAO", "VALOR ENERGETICO", "SAC:", "VALIDADE"];
     let indiceFim = textoFocado.length;
     marcadoresFim.forEach(m => {
         const idx = textoFocado.indexOf(m);
