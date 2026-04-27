@@ -15,7 +15,6 @@ const containerPreview = document.getElementById('container-preview');
 
 let bancoDadosVegano = [];
 
-// Normalização para evitar erros de acento, espaços e caixa alta
 const normalizarParaBusca = (str) => {
     return str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().trim() : "";
 };
@@ -66,7 +65,7 @@ async function analisarComGoogleVision(base64Image) {
         if (textoDetectado) {
             processarIngredientes(textoDetectado);
         } else {
-            status.innerHTML = "❌ Erro na leitura.";
+            status.innerHTML = "❌ Erro na leitura. Tente focar melhor.";
         }
     } catch (error) {
         status.innerText = "Erro na API do Google.";
@@ -74,63 +73,56 @@ async function analisarComGoogleVision(base64Image) {
 }
 
 // ==========================================
-// 4. LÓGICA DE PROCESSAMENTO (CONSOLIDADA)
+// 4. LÓGICA DE PROCESSAMENTO (VERSÃO FINAL)
 // ==========================================
 function processarIngredientes(texto) {
     const textoLimpo = normalizarParaBusca(texto);
     
-    // 🛡️ 1. LOCALIZAR O BLOCO REAL DE INGREDIENTES
+    // TRAVA 1: Localizar início real (Ignora Tabela Nutricional acima)
     const marcadorInicio = "INGREDIENTES";
     const indiceInicio = textoLimpo.indexOf(marcadorInicio);
 
     if (indiceInicio === -1) {
-        status.innerHTML = `<div style="padding:20px; background:#666; border-radius:15px;"><strong>🔍 LISTA NÃO LOCALIZADA</strong></div>`;
+        status.innerHTML = `<div style="padding:20px; background:#666; color:#fff; border-radius:15px;"><strong>🔍 LISTA NÃO LOCALIZADA</strong><p style="font-size:0.8em; margin-top:5px;">Aponte para a palavra 'Ingredientes'.</p></div>`;
         return;
     }
 
-    // 🛡️ 2. DEFINIR O FIM DA LEITURA (Ignora fabricação e rodapés)
+    // TRAVA 2: Definir fim da leitura (SAC, Fabricação, etc)
     let textoFocado = textoLimpo.substring(indiceInicio);
-    const marcadoresFim = ["CONSERVACAO", "VALOR ENERGETICO", "PRODUZIDO POR", "FABRICADO POR", "SAC:", "VALIDADE"];
-    
+    const marcadoresFim = ["FABRICADO POR", "DISTRIBUIDO", "INDUSTRIA BRASILEIRA", "CONSERVACAO", "VALOR ENERGETICO", "SAC:", "VALIDADE"];
     let indiceFim = textoFocado.length;
     marcadoresFim.forEach(m => {
         const idx = textoFocado.indexOf(m);
         if (idx !== -1 && idx < indiceFim && idx > 15) indiceFim = idx;
     });
-
     textoFocado = textoFocado.substring(0, indiceFim);
 
-    // 🛡️ 3. FILTRO ANTI-TABELA NUTRICIONAL (O "Pulo do Gato")
-    // Vamos quebrar o texto em linhas e remover aquelas que parecem ser da tabela nutricional
+    // TRAVA 3: Filtro Anti-Ruído de Tabela Nutricional (Linhas com %, kcal, etc)
     const linhas = textoFocado.split('\n');
-    const palavrasTabela = ["VD", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "VALOR", "%"];
-    
-    const textoFiltrado = linhas.filter(linha => {
-        // Se a linha tiver muitas palavras de tabela nutricional, nós a descartamos
-        const ehTabela = palavrasTabela.some(p => linha.includes(p));
-        return !ehTabela;
-    }).join(' ');
+    const palavrasTabela = ["VD", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "%"];
+    const textoFiltrado = linhas.filter(l => !palavrasTabela.some(p => l.includes(p))).join(' ');
 
-    // 🛡️ 4. SEPARAR "PODE CONTER"
-    const marcadorAviso = "PODE CONTER";
-    const indiceAviso = textoFiltrado.indexOf(marcadorAviso);
-    
-    let ingredientesReais = textoFiltrado;
-    let alertasTracos = "";
+    // TRAVA 4: Separar "Pode Conter"
+    const marcadoresAviso = ["PODE CONTER", "ALERGICOS", "TRACOS DE"];
+    let pontoDeCorte = textoFiltrado.length;
+    marcadoresAviso.forEach(m => {
+        const idx = textoFiltrado.indexOf(m);
+        if (idx !== -1 && idx < pontoDeCorte) pontoDeCorte = idx;
+    });
 
-    if (indiceAviso !== -1) {
-        ingredientesReais = textoFiltrado.substring(0, indiceAviso);
-        alertasTracos = textoFiltrado.substring(indiceAviso);
-    }
+    const ingredientesReais = textoFiltrado.substring(0, pontoDeCorte);
+    const alertasTracos = textoFiltrado.substring(pontoDeCorte);
 
     let encontrados = [];
 
-    // 5. FILTRO DE CHOQUE (Itens Fatais)
+    // TRAVA 5: Filtro de Choque (Fatais)
     const fatais = [
-        { nome: "LEITE", desc: "Origem animal." },
+        { nome: "LEITE", desc: "Origem animal mamífera." },
+        { nome: "LACTOSE", desc: "Açúcar do leite." },
         { nome: "OVOS", desc: "Origem animal." },
-        { nome: "CARNE", desc: "Origem animal." },
-        { nome: "MEL", desc: "Origem animal." }
+        { nome: "MEL", desc: "Origem animal." },
+        { nome: "CARNE", desc: "Tecido animal." },
+        { nome: "SORO", desc: "Derivado de leite." }
     ];
 
     fatais.forEach(f => {
@@ -138,11 +130,11 @@ function processarIngredientes(texto) {
         if (regex.test(ingredientesReais)) {
             encontrados.push({ nome: f.nome, classificacao: "NAO VEGANO", descricao: f.desc });
         } else if (regex.test(alertasTracos)) {
-            encontrados.push({ nome: f.nome, classificacao: "ORIGEM AMBIGUA", descricao: "Aviso de traços (contaminação)." });
+            encontrados.push({ nome: f.nome, classificacao: "ORIGEM AMBIGUA", descricao: "Aviso de traços (contaminação cruzada)." });
         }
     });
 
-    // 6. COMPARAÇÃO COM CSV (Apenas no texto filtrado de ingredientes)
+    // TRAVA 6: Comparação CSV
     bancoDadosVegano.forEach(item => {
         const nomeCSV = normalizarParaBusca(item.nome);
         const regexCSV = new RegExp(`\\b${nomeCSV}\\b`, 'gi');
@@ -153,69 +145,80 @@ function processarIngredientes(texto) {
 
     exibirResultadoVeredito(encontrados, ingredientesReais);
 }
+
 // ==========================================
 // 5. EXIBIÇÃO (HIERARQUIA DE CORES)
 // ==========================================
 function exibirResultadoVeredito(lista, textoExibicao) {
     const limpar = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase() : "";
-
     const temNaoVegano = lista.some(i => limpar(i.classificacao).includes("NAO"));
     const temAmbiguo = lista.some(i => limpar(i.classificacao).includes("AMBIGUA") || limpar(i.classificacao).includes("DUBIO"));
     
     let htmlSelo = "";
 
     if (temNaoVegano) {
-        htmlSelo = `
-            <div style="background:#b71c1c; color:#fff; padding:25px; border-radius:15px; border:5px solid #801111; margin-bottom:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-                <strong style="font-size:1.6em; display:block;">❌ PRODUTO NÃO VEGANO</strong>
-                <p style="margin-top:10px; font-weight:normal; opacity:0.9;">Ingredientes de origem animal confirmados.</p>
-            </div>`;
+        htmlSelo = `<div style="background:#b71c1c; color:#fff; padding:25px; border-radius:15px; border:5px solid #801111; margin-bottom:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);"><strong>❌ PRODUTO NÃO VEGANO</strong></div>`;
     } else if (temAmbiguo) {
-        htmlSelo = `
-            <div style="background:#f57f17; color:#fff; padding:25px; border-radius:15px; border:5px solid #c86612; margin-bottom:20px;">
-                <strong style="font-size:1.5em; display:block;">⚠️ ORIGEM AMBÍGUA</strong>
-                <p style="margin-top:10px; font-weight:normal; opacity:0.9;">Contém itens que exigem cautela.</p>
-            </div>`;
+        htmlSelo = `<div style="background:#f57f17; color:#fff; padding:25px; border-radius:15px; border:5px solid #c86612; margin-bottom:20px;"><strong>⚠️ ORIGEM AMBÍGUA</strong></div>`;
     } else {
-        htmlSelo = `
-            <div style="background:#2d5a27; color:#fff; padding:25px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;">
-                <strong style="font-size:1.5em; display:block;">🌱 PARECE VEGANO</strong>
-                <p style="margin-top:10px; font-weight:normal; opacity:0.9;">Nenhum item animal detectado nos ingredientes.</p>
-            </div>`;
+        htmlSelo = `<div style="background:#2d5a27; color:#fff; padding:25px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;"><strong>🌱 PARECE VEGANO</strong></div>`;
     }
 
     let htmlCards = lista.map(item => {
         const cNorm = limpar(item.classificacao);
-        let cor = "#2d5a27"; 
-        let label = "VEGANO";
-
-        if (cNorm.includes("NAO")) { cor = "#b71c1c"; label = "NÃO VEGANO"; }
-        else if (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO")) { cor = "#f57f17"; label = "ORIGEM AMBÍGUA"; }
+        let cor = cNorm.includes("NAO") ? "#b71c1c" : (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO") ? "#f57f17" : "#2d5a27");
+        let label = cNorm.includes("NAO") ? "NÃO VEGANO" : (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO") ? "ORIGEM AMBÍGUA" : "VEGANO");
 
         return `
             <div style="border-left:10px solid ${cor}; background:#fff; padding:15px; margin-bottom:12px; border-radius:0 12px 12px 0; text-align:left; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <strong style="color:${cor}; font-size:1.15em;">${item.nome}</strong>
-                    <span style="background:${cor}; color:#fff; font-size:0.65em; padding:4px 10px; border-radius:6px; font-weight:bold;">${label}</span>
+                <div style="display:flex; justify-content:space-between;">
+                    <strong style="color:${cor}">${item.nome}</strong>
+                    <span style="background:${cor}; color:#fff; font-size:10px; padding:3px 8px; border-radius:5px; font-weight:bold;">${label}</span>
                 </div>
-                <p style="color:#555; font-size:0.9em; margin-top:8px; line-height:1.4;">${item.descricao}</p>
+                <p style="color:#555; font-size:0.9em; margin-top:8px;">${item.descricao}</p>
             </div>`;
     }).join('');
 
     status.innerHTML = htmlSelo + htmlCards;
 }
 
-// Eventos de câmera e upload chamando analisarComGoogleVision(base64)...
+// ==========================================
+// 6. EVENTOS E CÂMERA (COM FOCO AUTOMÁTICO)
+// ==========================================
 btnScan.addEventListener('click', async () => {
     fotoPreview.style.display = "none";
+    
+    const constraints = {
+        video: {
+            facingMode: "environment",
+            width: { ideal: 1920 },
+            height: { ideal: 1080 }
+        }
+    };
+
     try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
         prepararContainer();
         video.srcObject = stream;
         video.style.display = "block";
         btnScan.style.display = "none";
         btnCapture.style.display = "block";
-    } catch (err) { status.innerText = "Erro na câmera."; }
+
+        // Tentar forçar foco contínuo se o hardware permitir
+        const track = stream.getVideoTracks()[0];
+        const capabilities = track.getCapabilities();
+        if (capabilities.focusMode && capabilities.focusMode.includes('continuous')) {
+            await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] });
+        }
+    } catch (err) { status.innerText = "Erro ao acessar câmera."; }
+});
+
+// Toque no vídeo para tentar refocar manualmente
+video.addEventListener('click', async () => {
+    const track = video.srcObject.getVideoTracks()[0];
+    if (track.getCapabilities().focusMode) {
+        await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] });
+    }
 });
 
 btnCapture.addEventListener('click', () => {
@@ -223,13 +226,16 @@ btnCapture.addEventListener('click', () => {
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
     const base64 = canvas.toDataURL('image/jpeg');
+    
     prepararContainer();
     fotoPreview.src = base64;
     fotoPreview.style.display = "block";
+
     video.srcObject.getTracks().forEach(t => t.stop());
     video.style.display = "none";
     btnCapture.style.display = "none";
     btnScan.style.display = "block";
+
     analisarComGoogleVision(base64);
 });
 
