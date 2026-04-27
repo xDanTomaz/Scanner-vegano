@@ -10,31 +10,31 @@
 
     <div class="container">
         <h1>🌱 EthoScan</h1>
-        <p style="font-size: 20px; font-weight: bold; ">Escaneador de ingredientes</p>
-        <p>Aponte a câmera para a lista de ingredientes do produto</p>
+        <p style="font-size: 20px; font-weight: bold; margin-bottom: 5px;">Escaneador de ingredientes</p>
+        <p style="margin-bottom: 20px;">Aponte a câmera para a lista de ingredientes</p>
 
-       <div class="camera-box" id="container-preview">
-        <div id="instrucoes" class="instrucoes-container">
-            <div class="icon">📸</div>
-            <h3>Como tirar a foto:</h3>
-            <ul>
-                <li>Procure um ambiente **bem iluminado**.</li>
-                <li>Foque apenas na **lista de ingredientes**.</li>
-                <li>Mantenha a câmera **reta e firme**.</li>
-                    </ul>
+        <div class="camera-box" id="container-preview">
+            <div id="instrucoes" class="instrucoes-container">
+                <div class="icon">📸</div>
+                <h3>Como tirar a melhor foto:</h3>
+                <ul>
+                    <li>Mantenha o celular a uns **15cm** de distância.</li>
+                    <li>Aguarde o **foco automático** estabilizar.</li>
+                    <li>Foque centralizando a palavra **"INGREDIENTES"**.</li>
+                    <li>Evite sombras e reflexos sobre o texto.</li>
+                </ul>
             </div>
 
-            <video id="video" autoplay playsinline style="display:none; width:100%;"></video>
+            <video id="video" autoplay playsinline style="display:none;"></video>
             <canvas id="canvas" style="display:none;"></canvas>
-            
-            <img id="foto-preview" src="" alt="Foto do rótulo" style="display:none; width:100%; border-radius:10px;">
+            <img id="foto-preview" src="" alt="Foto do rótulo" style="display:none;">
         </div>
 
         <div class="controls">
             <button id="btn-scan" class="btn">Abrir Câmera</button>
             <button id="btn-capture" class="btn" style="display:none;">Tirar Foto</button>
             
-            <div style="margin-top: 10px;">
+            <div style="margin-top: 15px;">
                 <label for="file-upload" class="btn-alt">Escolher da Galeria</label>
                 <input type="file" id="file-upload" accept="image/*" style="display:none;">
             </div>
@@ -42,9 +42,9 @@
 
         <div id="status" class="resultado">Aguardando comando...</div>
 
-        <div style="font-size: 0.7em; color: #666; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px; text-align: left;">
+        <div style="font-size: 0.72em; color: #666; margin-top: 35px; border-top: 1px solid #eee; padding-top: 15px; text-align: left; line-height: 1.4;">
             <strong>⚠️ AVISO IMPORTANTE:</strong><br>
-            Este site é uma ferramenta de auxílio e utiliza inteligência de leitura de texto (Google Vision), que está sujeita a erros (especialmente em fotos ruins ou letras muito pequenas). O resultado "Parece ser Vegano" NÃO garante que o produto seja 100% vegano. Sempre confira a lista de ingredientes manualmente e procure pelo selo vegano oficial do fabricante. Não nos responsabilizamos por escolhas feitas com base nos resultados do scanner.
+            Este site utiliza inteligência de leitura (Google Vision), sujeita a falhas. O resultado "Parece ser Vegano" não é um certificado oficial. Sempre confira os ingredientes manualmente e procure pelo selo vegano oficial. Não nos responsabilizamos por escolhas feitas com base no scanner.
         </div>
     </div>
 
