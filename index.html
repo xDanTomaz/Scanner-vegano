@@ -13,12 +13,22 @@
         <p style="font-size: 20px; font-weight: bold; ">Escaneador de ingredientes</p>
         <p>Aponte a câmera para a lista de ingredientes do produto</p>
 
-        <div class="camera-box">
-            <video id="video" autoplay playsinline style="display:none; width:100%; border-radius:10px;"></video>
+       <div class="camera-box" id="container-preview">
+        <div id="instrucoes" class="instrucoes-container">
+            <div class="icon">📸</div>
+            <h3>Como tirar a foto:</h3>
+            <ul>
+                <li>Procure um ambiente **bem iluminado**.</li>
+                <li>Foque apenas na **lista de ingredientes**.</li>
+                <li>Mantenha a câmera **reta e firme**.</li>
+                    </ul>
+            </div>
+
+            <video id="video" autoplay playsinline style="display:none; width:100%;"></video>
             <canvas id="canvas" style="display:none;"></canvas>
             
-            <img id="foto-preview" src="" alt="Foto do rótulo" style="display:none; width:100%; max-width:400px; border-radius:10px; margin: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-        </div>
+            <img id="foto-preview" src="" alt="Foto do rótulo" style="display:none; width:100%; border-radius:10px;">
+        </div>>
 
         <div class="controls">
             <button id="btn-scan" class="btn">Abrir Câmera</button>
