@@ -185,7 +185,7 @@ function exibirResultadoVeredito(lista, textoExibicao) {
     } else if (temAmbiguo) {
         htmlSelo = `<div style="background:#f57f17; color:#fff; padding:20px; border-radius:15px; border:5px solid #c86612; margin-bottom:20px;"><strong>⚠️ ORIGEM AMBÍGUA</strong></div>`;
     } else {
-        htmlSelo = `<div style="background:#2d5a27; color:#fff; padding:20px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;"><strong>🌱 ssssssPRODUTO VEGANO</strong></div>`;
+        htmlSelo = `<div style="background:#2d5a27; color:#fff; padding:20px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;"><strong>🌱 PRODUTO VEGANO</strong></div>`;
     }
 
     let htmlCards = lista.map(item => {
