@@ -99,7 +99,6 @@ function processarIngredientes(texto) {
     textoFocado = textoFocado.substring(0, indiceFim);
 
     // 🛡️ 3. FILTRO DE RUÍDO NUTRICIONAL (LIMPEZA DE TABELA)
-    // Se a linha contiver termos nutricionais, ela é descartada para não gerar falsos negativos
     const termosTabela = [
         "GORDURAS", "GORDURAS TOTAIS","GORDURAS SATURADAS", "SODIO", "PROTEINAS", "CARBOIDRATOS", 
         "VALOR", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "VD", "%"
@@ -107,16 +106,66 @@ function processarIngredientes(texto) {
 
     const linhas = textoFocado.split('\n');
     const textoFinalFiltrado = linhas.map(linha => {
-        // Se a linha tiver palavras da tabela nutricional, limpamos ela
         let linhaLimpa = linha;
         termosTabela.forEach(termo => {
             if (linhaLimpa.includes(termo)) {
-                // Remove o termo e o que vier depois dele na mesma linha
                 linhaLimpa = linhaLimpa.split(termo)[0];
             }
         });
         return linhaLimpa;
     }).join(' ');
+
+    // 🛡️ 4. SEPARAÇÃO RIGOROSA PARA ALÉRGICOS (MODIFICAÇÃO IMPLEMENTADA)
+    const marcadoresAviso = ["PODE CONTER", "ALERGICOS", "TRACOS DE"];
+    let pontoDeCorte = textoFinalFiltrado.length;
+    marcadoresAviso.forEach(m => {
+        const idx = textoFinalFiltrado.indexOf(m);
+        if (idx !== -1 && idx < pontoDeCorte) pontoDeCorte = idx;
+    });
+
+    const ingredientesReais = textoFinalFiltrado.substring(0, pontoDeCorte);
+    const alertasTracos = textoFinalFiltrado.substring(pontoDeCorte);
+
+    let encontrados = [];
+    const fatais = [
+        { nome: "LEITE", desc: "Origem animal." },
+        { nome: "OVOS", desc: "Origem animal." },
+        { nome: "MEL", desc: "Origem animal." },
+        { nome: "CARNE", desc: "Origem animal." },
+        { nome: "SORO", desc: "Derivado de leite animal." }
+    ];
+
+    // Busca nos Ingredientes Reais (Gera bloqueio não vegano)
+    fatais.forEach(f => {
+        const regex = new RegExp(`\\b${f.nome}\\b`, 'gi');
+        if (regex.test(ingredientesReais)) {
+            encontrados.push({ 
+                nome: f.nome, 
+                classificacao: "NAO VEGANO", 
+                descricao: f.desc 
+            });
+        } 
+        // Busca apenas nos alertas (Gera card branco informativo)
+        else if (regex.test(alertasTracos)) {
+            encontrados.push({ 
+                nome: f.nome, 
+                classificacao: "CONTAMINACAO", 
+                descricao: `Alerta para alérgicos: Pode conter traços de ${f.nome.toLowerCase()} devido ao processamento.` 
+            });
+        }
+    });
+
+    // Comparação com Banco de Dados CSV (apenas ingredientes reais)
+    bancoDadosVegano.forEach(item => {
+        const nomeCSV = normalizarParaBusca(item.nome);
+        const regexCSV = new RegExp(`\\b${nomeCSV}\\b`, 'gi');
+        if (regexCSV.test(ingredientesReais) && !encontrados.some(e => e.nome === nomeCSV)) {
+            encontrados.push({ ...item });
+        }
+    });
+
+    exibirResultadoVeredito(encontrados, ingredientesReais);
+}
 
     // 4. SEPARAR "PODE CONTER"
     const marcadorAviso = "PODE CONTER";
@@ -165,6 +214,19 @@ function processarIngredientes(texto) {
 // ==========================================
 function exibirResultadoVeredito(lista, textoExibicao) {
     const limpar = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase() : "";
+
+    // 1. RESUMO DO TEXTO LIDO
+    let resumoLimpo = textoExibicao 
+        ? textoExibicao.substring(0, 100).replace(/\n/g, " ").trim() 
+        : "Trecho não identificado";
+
+    let htmlHeader = `
+        <div style="font-size:0.7em; color:#777; margin-bottom:10px; text-align:center; font-style:italic;">
+            Lido: "${resumoLimpo}..."
+        </div>`;
+
+    // 2. LÓGICA DE DECISÃO DO SELO PRINCIPAL
+    // O sistema ignora itens de "CONTAMINACAO" para decidir se o selo é vermelho ou laranja
     const temNaoVegano = lista.some(i => limpar(i.classificacao).includes("NAO"));
     const temAmbiguo = lista.some(i => limpar(i.classificacao).includes("AMBIGUA") || limpar(i.classificacao).includes("DUBIO"));
     
@@ -175,25 +237,49 @@ function exibirResultadoVeredito(lista, textoExibicao) {
     } else if (temAmbiguo) {
         htmlSelo = `<div style="background:#f57f17; color:#fff; padding:25px; border-radius:15px; border:5px solid #c86612; margin-bottom:20px;"><strong>⚠️ ORIGEM AMBÍGUA</strong></div>`;
     } else {
+        // Se houver apenas "CONTAMINACAO" (ou nada), o produto continua com selo verde
         htmlSelo = `<div style="background:#2d5a27; color:#fff; padding:25px; border-radius:15px; border:5px solid #1e3d1a; margin-bottom:20px;"><strong>🌱 PARECE VEGANO</strong></div>`;
     }
 
+    // 3. GERAÇÃO DOS CARDS INDIVIDUAIS
     let htmlCards = lista.map(item => {
         const cNorm = limpar(item.classificacao);
-        let cor = cNorm.includes("NAO") ? "#b71c1c" : (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO") ? "#f57f17" : "#2d5a27");
-        let label = cNorm.includes("NAO") ? "NÃO VEGANO" : (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO") ? "ORIGEM AMBÍGUA" : "VEGANO");
+        
+        // Definição de cores e etiquetas
+        let cor = "#2d5a27"; // Verde padrão
+        let label = "VEGANO";
+        let bgColor = "#fff";
+
+        if (cNorm.includes("NAO")) { 
+            cor = "#b71c1c"; 
+            label = "NÃO VEGANO"; 
+        } else if (cNorm.includes("AMBIGUA") || cNorm.includes("DUBIO")) { 
+            cor = "#f57f17"; 
+            label = "ORIGEM AMBÍGUA"; 
+        } else if (cNorm.includes("CONTAMINACAO")) { 
+            // Estilo para Contaminação Cruzada: Branco com borda cinza
+            cor = "#ddd"; 
+            label = "CONTAMINAÇÃO CRUZADA";
+            bgColor = "#f9f9f9"; 
+        }
+
+        // Ajuste de cores de texto para o card de contaminação (branco)
+        let textTitleColor = (cNorm.includes("CONTAMINACAO")) ? "#444" : cor;
+        let labelTextColor = (cNorm.includes("CONTAMINACAO")) ? "#666" : "#fff";
+        let labelBorderStyle = (cNorm.includes("CONTAMINACAO")) ? "1px solid #ccc" : "none";
 
         return `
-            <div style="border-left:10px solid ${cor}; background:#fff; padding:15px; margin-bottom:12px; border-radius:0 12px 12px 0; text-align:left; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-                <div style="display:flex; justify-content:space-between;">
-                    <strong style="color:${cor}">${item.nome}</strong>
-                    <span style="background:${cor}; color:#fff; font-size:10px; padding:3px 8px; border-radius:5px; font-weight:bold;">${label}</span>
+            <div style="border-left:10px solid ${cor}; background:${bgColor}; padding:15px; margin-bottom:12px; border-radius:0 12px 12px 0; text-align:left; box-shadow:0 4px 8px rgba(0,0,0,0.1); border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color:${textTitleColor};">${item.nome}</strong>
+                    <span style="background:${cor}; color:${labelTextColor}; font-size:10px; padding:3px 8px; border-radius:5px; font-weight:bold; border:${labelBorderStyle};">${label}</span>
                 </div>
                 <p style="color:#555; font-size:0.9em; margin-top:8px;">${item.descricao}</p>
             </div>`;
     }).join('');
 
-    status.innerHTML = htmlSelo + htmlCards;
+    // 4. ATUALIZAÇÃO DO STATUS
+    status.innerHTML = htmlHeader + htmlSelo + htmlCards;
 }
 
 // ==========================================
