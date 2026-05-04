@@ -123,30 +123,42 @@ function processarIngredientes(texto) {
     const alertasTracos = textoFinalFiltrado.substring(pontoDeCorte);
 
     let encontrados = [];
+  // 🛡️ TRAVA 5: Filtro de Choque (Itens Fatais) - PRIORIDADE MÁXIMA
     const fatais = [
         { nome: "LEITE", desc: "Origem animal." },
+        { nome: "LACTOSE", desc: "Açúcar do leite." },
         { nome: "OVOS", desc: "Origem animal." },
         { nome: "MEL", desc: "Origem animal." },
-        { nome: "CARNE", desc: "Origem animal." },
-        { nome: "SORO", desc: "Derivado de leite animal." }
+        { nome: "CARNE", desc: "Tecido animal." },
+        { nome: "SORO", desc: "Derivado de leite." }
     ];
 
-    // PRIORIDADE 1: Itens Críticos (Filtro de Choque)
     fatais.forEach(f => {
         const regex = new RegExp(`\\b${f.nome}\\b`, 'gi');
         if (regex.test(ingredientesReais)) {
             encontrados.push({ nome: f.nome, classificacao: "NAO VEGANO", descricao: f.desc });
         } else if (regex.test(alertasTracos)) {
-            encontrados.push({ nome: f.nome, classificacao: "CONTAMINACAO", descricao: `Alerta para alérgicos: Pode conter traços de ${f.nome.toLowerCase()}.` });
+            encontrados.push({ 
+                nome: f.nome, 
+                classificacao: "CONTAMINACAO", 
+                descricao: `Alerta para alérgicos: Pode conter traços de ${f.nome.toLowerCase()}.` 
+            });
         }
     });
 
-    // PRIORIDADE 2: Banco de Dados CSV (Apenas ingredientes reais)
+    // 🛡️ TRAVA 6: Comparação com CSV (Apenas se o item ainda não foi encontrado)
     bancoDadosVegano.forEach(item => {
         const nomeCSV = normalizarParaBusca(item.nome);
         const regexCSV = new RegExp(`\\b${nomeCSV}\\b`, 'gi');
-        if (regexCSV.test(ingredientesReais) && !encontrados.some(e => e.nome === nomeCSV)) {
-            encontrados.push({ ...item });
+        
+        // SÓ ADICIONA SE:
+        // 1. O nome estiver nos ingredientes reais
+        // 2. O item ainda não estiver na lista (evita que o CSV sobrescreva o filtro de choque)
+        if (regexCSV.test(ingredientesReais)) {
+            const jaEncontrado = encontrados.some(e => e.nome === nomeCSV);
+            if (!jaEncontrado) {
+                encontrados.push({ ...item });
+            }
         }
     });
 
