@@ -221,12 +221,16 @@ function exibirResultadoVeredito(lista, textoExibicao) {
 // 6. EVENTOS E CONTROLE DE CÂMERA (FOCO)
 // ==========================================
 btnScan.addEventListener('click', async () => {
+    // CORREÇÃO: Esconde a foto anterior para a câmera ocupar o espaço todo
+    fotoPreview.style.display = "none";
+    fotoPreview.src = ""; // Limpa o caminho da imagem anterior
+    
     const constraints = { video: { facingMode: "environment", width: { ideal: 1920 }, height: { ideal: 1080 } } };
     try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         prepararContainer();
         video.srcObject = stream;
-        video.style.display = "block";
+        video.style.display = "block"; // Garante que o vídeo apareça
         btnScan.style.display = "none";
         btnCapture.style.display = "block";
 
@@ -237,7 +241,6 @@ btnScan.addEventListener('click', async () => {
         }
     } catch (err) { status.innerText = "Erro ao acessar câmera."; }
 });
-
 btnCapture.addEventListener('click', () => {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
