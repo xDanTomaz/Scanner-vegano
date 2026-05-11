@@ -123,7 +123,7 @@ function processarIngredientes(texto) {
     const alertasTracos = textoFinalFiltrado.substring(pontoDeCorte);
 
     let encontrados = [];
-  // 🛡️ TRAVA 5: Filtro de Choque (Itens Fatais) - PRIORIDADE MÁXIMA
+  // 🛡️ TRAVA 5: Filtro de Choque (Itens Fatais) - PRIORIDADE MÁXIMA COM BUSCA POR PROXIMIDADE
     const fatais = [
         { nome: "LEITE", desc: "Origem animal." },
         { nome: "LACTOSE", desc: "Açúcar do leite." },
@@ -136,27 +136,34 @@ function processarIngredientes(texto) {
     fatais.forEach(f => {
         const regex = new RegExp(`\\b${f.nome}\\b`, 'gi');
         
-        // NOVO AJUSTE: Verifica se o item está nos ingredientes OU se há um aviso de "CONTÉM"
-        // Se o rótulo diz "CONTÉM LEITE", ele deixa de ser contaminação e vira NÃO VEGANO
-        const contemExplícito = alertasTracos.includes("CONTEM") && regex.test(alertasTracos);
-
-        if (regex.test(ingredientesReais) || contemExplícito) {
-            encontrados.push({ 
-                nome: f.nome, 
-                classificacao: "NAO VEGANO", 
-                descricao: f.desc 
-            });
+        // 1. Verificar se está nos ingredientes principais
+        if (regex.test(ingredientesReais)) {
+            encontrados.push({ nome: f.nome, classificacao: "NAO VEGANO", descricao: f.desc });
         } 
-        // Se estiver nos traços e NÃO disser "CONTÉM" (ex: apenas "PODE CONTER")
+        // 2. Se estiver nos alertas, vamos analisar o contexto imediato
         else if (regex.test(alertasTracos)) {
-            encontrados.push({ 
-                nome: f.nome, 
-                classificacao: "CONTAMINACAO", 
-                descricao: `Alerta para alérgicos: Pode conter traços de ${f.nome.toLowerCase()}.` 
-            });
+            // Pegamos a posição do ingrediente no texto de alerta
+            const indiceIngrediente = alertasTracos.indexOf(f.nome);
+            // Analisamos os 30 caracteres que vem antes dele para achar o gatilho
+            const contextoAnterior = alertasTracos.substring(Math.max(0, indiceIngrediente - 50), indiceIngrediente);
+
+            if (contextoAnterior.includes("PODE CONTER") || contextoAnterior.includes("TRACOS")) {
+                // Se o gatilho mais próximo for "Pode conter" -> CONTAMINAÇÃO
+                encontrados.push({ 
+                    nome: f.nome, 
+                    classificacao: "CONTAMINACAO", 
+                    descricao: `Alerta para alérgicos: Pode conter traços de ${f.nome.toLowerCase()} devido ao processamento.` 
+                });
+            } else if (contextoAnterior.includes("CONTEM") || contextoAnterior.includes("DERIVADOS")) {
+                // Se o gatilho mais próximo for "Contém" -> NÃO VEGANO
+                encontrados.push({ 
+                    nome: f.nome, 
+                    classificacao: "NAO VEGANO", 
+                    descricao: `Este produto declara conter ${f.nome.toLowerCase()} ou derivados na composição.` 
+                });
+            }
         }
     });
-
     // 🛡️ TRAVA 6: Comparação com CSV (Apenas se o item ainda não foi encontrado)
     bancoDadosVegano.forEach(item => {
         const nomeCSV = normalizarParaBusca(item.nome);
