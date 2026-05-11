@@ -135,9 +135,20 @@ function processarIngredientes(texto) {
 
     fatais.forEach(f => {
         const regex = new RegExp(`\\b${f.nome}\\b`, 'gi');
-        if (regex.test(ingredientesReais)) {
-            encontrados.push({ nome: f.nome, classificacao: "NAO VEGANO", descricao: f.desc });
-        } else if (regex.test(alertasTracos)) {
+        
+        // NOVO AJUSTE: Verifica se o item está nos ingredientes OU se há um aviso de "CONTÉM"
+        // Se o rótulo diz "CONTÉM LEITE", ele deixa de ser contaminação e vira NÃO VEGANO
+        const contemExplícito = alertasTracos.includes("CONTEM") && regex.test(alertasTracos);
+
+        if (regex.test(ingredientesReais) || contemExplícito) {
+            encontrados.push({ 
+                nome: f.nome, 
+                classificacao: "NAO VEGANO", 
+                descricao: f.desc 
+            });
+        } 
+        // Se estiver nos traços e NÃO disser "CONTÉM" (ex: apenas "PODE CONTER")
+        else if (regex.test(alertasTracos)) {
             encontrados.push({ 
                 nome: f.nome, 
                 classificacao: "CONTAMINACAO", 
