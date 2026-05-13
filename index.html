@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ethoscan - Entenda ingredientes. Decida com confiança. Analise ingredientes de alimentos e traduza rótulos complexos em decisões claras.">
+    <title>Ethoscan | Entenda ingredientes. Decida com confiança.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_home.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <!-- CORREÇÃO: Logo em tipografia estrita -->
+            <a href="#" class="logo-brand">
+                <div class="logo-brand-icon">
+                    <i data-lucide="scan" class="logo-scan-box"></i>
+                    <i data-lucide="check" class="logo-check"></i>
+                </div>
+                <div class="logo-brand-text">
+                    <span class="logo-etho">Etho</span><span class="logo-scan-text">scan</span>
+                </div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#sobre-nos">Sobre nós</a>
+                <!-- CORREÇÃO: Removido item 'Blog' -->
+            </nav>
+
+            <div class="nav-cta">
+                <a href="ethoscopia/scanner.html">Ir para o Scanner</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content">
+                <h1>Entenda ingredientes.<br>Decida com <span class="highlight">confiança.</span></h1>
+                <p class="hero-subtitle">Ethoscan analisa ingredientes de alimentos e traduz rótulos complexos em decisões claras.</p>
+                
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="icon-wrapper"><i data-lucide="leaf"></i></div>
+                        <h4>Transparência</h4>
+                        <p>Informação clara e acessível</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon-wrapper"><i data-lucide="shield-check"></i></div>
+                        <h4>Confiável</h4>
+                        <p>Base científica e atualizada</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon-wrapper"><i data-lucide="lock"></i></div>
+                        <h4>Seguro</h4>
+                        <p>Seus dados, sua privacidade</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon-wrapper"><i data-lucide="heart-handshake"></i></div>
+                        <h4>Consciente</h4>
+                        <p>Escolhas melhores todo dia</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORREÇÃO: Ilustração Hero com 3 camadas sobrepostas -->
+            <div class="hero-image">
+                <div class="illustration-container">
+                    <!-- Camada de Fundo (Alimento) -->
+                    <div class="package-bg">
+                        <div class="package-top"></div>
+                        <div class="package-body">
+                            <div class="leaf-shape"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Camada Intermediária e Conteúdo (Lupa com texto perfeitamente centralizado) -->
+                    <div class="magnifier-glass-container">
+                        <div class="magnifier-circle">
+                            <div class="magnifier-text">
+                                <strong>INGREDIENTES:</strong>
+                                <p>Água, farinha de trigo enriquecida, óleo vegetal, sal, fermentos químicos (ins 450, ins 500ii), aromatizante natural.</p>
+                            </div>
+                        </div>
+                        <div class="magnifier-handle"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona Section -->
+        <section id="como-funciona" class="container">
+            <div class="how-it-works-box">
+                <h2 class="section-title text-center">Como funciona</h2>
+                
+                <div class="steps-wrapper">
+                    <div class="step">
+                        <div class="step-icon-container">
+                            <div class="step-icon"><i data-lucide="scan-line"></i></div>
+                        </div>
+                        <div class="step-number">1</div>
+                        <h4 class="step-title">Você insere</h4>
+                        <p>Scaneie o rótulo ou escolha da sua galeria</p>
+                    </div>
+
+                    <div class="step-connector"></div>
+
+                    <div class="step">
+                        <div class="step-icon-container">
+                            <div class="step-icon"><i data-lucide="database"></i></div>
+                        </div>
+                        <div class="step-number">2</div>
+                        <h4 class="step-title">Analisamos</h4>
+                        <p>Cruzamos com nossa base de dados confiável.</p>
+                    </div>
+
+                    <div class="step-connector"></div>
+
+                    <div class="step">
+                        <div class="step-icon-container">
+                            <div class="step-icon"><i data-lucide="search"></i></div>
+                        </div>
+                        <div class="step-number">3</div>
+                        <h4 class="step-title">Interpretamos</h4>
+                        <p>Identificamos origem, alergênicos e restrições.</p>
+                    </div>
+
+                    <div class="step-connector"></div>
+
+                    <div class="step">
+                        <div class="step-icon-container">
+                            <div class="step-icon"><i data-lucide="check-circle-2"></i></div>
+                        </div>
+                        <div class="step-number">4</div>
+                        <h4 class="step-title">Você decide</h4>
+                        <p>Resultado claro, explicação e confiança para escolher.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Central Section -->
+        <section class="container">
+            <div class="banner-central">
+                <div class="banner-icon-bg">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <div class="banner-content">
+                    <h2>Escaneie qualquer rótulo<br>e descubra o que realmente importa.</h2>
+                    <p>Informação confiável para escolhas mais conscientes todos os dias.</p>
+                </div>
+                <div class="banner-action">
+                    <a href="ethoscopia/scanner.html">Ir para o Scanner</a>
+                        <i data-lucide="scan"></i> Escanear rótulo agora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards Section -->
+        <section class="container cards-section">
+            <div class="cards-grid">
+                
+                <!-- Card 1: O Problema -->
+                <div class="card problem-card">
+                    <div class="card-header">
+                        <i data-lucide="alert-triangle" class="icon-red"></i>
+                        <h3>O PROBLEMA</h3>
+                    </div>
+                    <p class="card-desc">Muitas pessoas querem escolhas conscientes, mas têm dúvidas sobre os ingredientes dos produtos.</p>
+                    <div class="problem-list">
+                        <div class="p-item">
+                            <div class="p-icon"><i data-lucide="user-x"></i></div>
+                            <span>Falta de transparência</span>
+                        </div>
+                        <div class="p-item">
+                            <div class="p-icon"><i data-lucide="file-question"></i></div>
+                            <span>Informações confusas</span>
+                        </div>
+                        <div class="p-item">
+                            <!-- CORREÇÃO: Garantindo ícone para o terceiro item -->
+                            <div class="p-icon"><i data-lucide="eye-off"></i></div>
+                            <span>Ingredientes de origem animal escondidos, etc.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Para quem é -->
+                <div class="card audience-card">
+                    <div class="card-header">
+                        <i data-lucide="users" class="icon-green"></i>
+                        <h3>PARA QUEM É</h3>
+                    </div>
+                    <ul class="checklist">
+                        <li><i data-lucide="check-circle-2" class="icon-green-light"></i> Veganas e vegetarianas</li>
+                        <li><i data-lucide="check-circle-2" class="icon-green-light"></i> Pessoas com restrições alimentares</li>
+                        <li><i data-lucide="check-circle-2" class="icon-green-light"></i> Consumidores conscientes</li>
+                        <li><i data-lucide="check-circle-2" class="icon-green-light"></i> Todos que querem entender melhor o que consomem</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: A Solução -->
+                <div class="card solution-card">
+                    <div class="card-header">
+                        <i data-lucide="lightbulb" class="icon-orange"></i>
+                        <h3>A SOLUÇÃO</h3>
+                    </div>
+                    <p class="card-desc">Ethoscan analisa ingredientes e informa se são de origem vegana ou não.</p>
+                    <div class="solution-levels">
+                        <div class="s-level">
+                            <div class="s-icon"><i data-lucide="check-circle-2" class="icon-green"></i></div>
+                            <div class="s-text">
+                                <strong>Produto Vegano</strong>
+                                <span>Todo o ingrediente é de origem vegetal.</span>
+                            </div>
+                        </div>
+                        <div class="s-level">
+                            <div class="s-icon"><i data-lucide="alert-triangle" class="icon-yellow"></i></div>
+                            <div class="s-text">
+                                <strong>Origem Ambígua</strong>
+                                <span>Contém ingredientes que podem não ser veganos.</span>
+                            </div>
+                        </div>
+                        <div class="s-level">
+                            <div class="s-icon"><i data-lucide="x-circle" class="icon-red"></i></div>
+                            <div class="s-text">
+                                <strong>Não Vegano</strong>
+                                <span>Contém ingredientes de origem animal.</span>
+                            </div>
+                        </div>
+                        <!-- CORREÇÃO: Novo Status Neutro -->
+                        <div class="s-level">
+                            <div class="s-icon"><i data-lucide="info" class="icon-blue"></i></div>
+                            <div class="s-text">
+                                <strong>Contaminação cruzada </strong>
+                                <span>Alerta de contaminação cruzada. Especificamente para pessoas alérgicas.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Quem Somos Section -->
+        <section id="sobre-nos" class="container">
+            <div class="about-card">
+                <div class="about-header">
+                    <div class="logo-large">
+                        <i data-lucide="scan" class="logo-scan-box-large"></i>
+                        <i data-lucide="check" class="logo-check-large"></i>
+                    </div>
+                    <div class="about-intro">
+                        <h3>QUEM SOMOS</h3>
+                        <p>Promover autonomia, ética e respeito à vida através de informação clara e tecnologia inteligente.</p>
+                    </div>
+                </div>
+                
+                <div class="about-features">
+                    <div class="af-item">
+                        <div class="af-icon"><i data-lucide="scan-line"></i></div>
+                        <h4>Scan</h4>
+                        <p>Tecnologia que traz confiança.</p>
+                    </div>
+                    <div class="af-item">
+                        <div class="af-icon"><i data-lucide="leaf"></i></div>
+                        <h4>Ética (ETHO)</h4>
+                        <p>Transparência, ética e respeito à vida.</p>
+                    </div>
+                    <div class="af-item">
+                        <div class="af-icon"><i data-lucide="list-checks"></i></div>
+                        <h4>Análise inteligente</h4>
+                        <p>Transformamos ingredientes em informação clara.</p>
+                    </div>
+                    <div class="af-item">
+                        <div class="af-icon"><i data-lucide="check-circle"></i></div>
+                        <h4>Escolhas conscientes</h4>
+                        <p>Decisões informadas para um futuro melhor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p><strong>Ethoscan:</strong> informação que gera confiança. Escolhas que transformam.</p>
+        </div>
+    </footer>
+
+    <script src="script_home.js"></script>
+</body>
+</html>
