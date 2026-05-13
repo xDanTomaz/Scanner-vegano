@@ -1,0 +1,607 @@
+name;classification;description
+Aqua;Vegano;Água destilada/desmineralizada. Muito usada em cosméticos.
+Acesulfame;Vegano;Adoçante artificial (Sunette ou Sweet One). Sem valor nutricional.
+Acesulfame de Potássio;Vegano;Adoçante artificial (Sunette ou Sweet One). Sem valor nutricional.
+Acesulfame K;Vegano;Adoçante artificial (Sunette ou Sweet One). Sem valor nutricional.
+Ace K;Vegano;Adoçante artificial (Sunette ou Sweet One). Sem valor nutricional.
+Acetato;Dúbio;Pode ser vitamina A animal ou sintética. Confirmar com fabricante.
+Acetato de Pregnenolona;Dúbio;Derivado de tecidos animais ou sintético. Confirmar com fabricante.
+Acetato estearílico;Dúbio;Derivado do ácido esteárico. Confirmar origem com fabricante.
+Ácido araquidônico;Não Vegano;Gordura encontrada em fígados e glândulas animais.
+Ácido ascórbico;Vegano;Vitamina C encontrada em vegetais ou produzida sinteticamente.
+Vitamina C;Vegano;Vitamina C encontrada em vegetais ou produzida sinteticamente.
+Ácido aspártico;Dúbio;Aminoácido presente em animais e plantas. Geralmente sintetizado.
+Ácido benzoico;Não Vegano;Presente em vertebrados. Usado em cosméticos e perfumes.
+Ácido benzóico;Vegano;Produzido sinteticamente pela oxidação do tolueno.
+Ácido caprílico;Dúbio;Derivado de leite animal ou óleos vegetais (coco/palma).
+Ácido carbônico;Vegano;Ácido formado pela combinação de CO2 e água.
+Ácido carmínico;Não Vegano;Corante extraído do inseto Cochonilha. (Ver Carmim).
+C.I. 75470;Não Vegano;Corante extraído do inseto Cochonilha. (Ver Carmim).
+Ácido cinâmico;Vegano;Obtido de plantas ou sintetizado.
+Ácido cítrico;Vegano;Derivado de frutas cítricas ou fermentação de açúcar.
+Ácido clorídrico;Vegano;Composto inorgânico usado em produtos de limpeza.
+Ácido de sebo;Não Vegano;Gordura extraída de tecidos animais.
+Ácido eritórbico;Vegano;Antioxidante produzido a partir da sacarose.
+Ácido esteárico;Dúbio;Pode vir de gordura animal ou manteigas vegetais (cacau/karité).
+Ácido fólico;Vegano;Vitamina B9 produzida sinteticamente.
+Folato;Vegano;Vitamina B9 produzida sinteticamente.
+Vitamina B9;Vegano;Vitamina B9 produzida sinteticamente.
+Ácido fosfórico;Vegano;Ácido inorgânico derivado de minerais.
+Ácido glicurônico;Não Vegano;De origem animal.
+Ácido glutâmico;Dúbio;Aminoácido animal ou vegetal usado como tempero.
+Ácido hialurônico;Dúbio;Proteína de tecidos animais ou sintética/vegetal.
+Ácido Lactil Lactato Estearoil;Dúbio;Pode ter origem animal (ácido esteárico).
+Ácido lático;Dúbio;Pode vir de beterraba ou de tecidos musculares/sangue animal.
+Aspic;Dúbio;Caldo derivado de carne ou peixe.
+Estearina;Não Vegano;Sólido obtido do sebo animal.
+Ácido láurico;Vegano;Derivado de gorduras vegetais (coco/louro).
+Ácido linoleico;Dúbio;Ácido graxo essencial de origem animal ou vegetal.
+Ácido málico;Vegano;Presente em frutas e vegetais ou produzido sinteticamente.
+Ácido mirístico;Dúbio;Derivado de óleos vegetais ou ocasionalmente animal.
+Ácido oleico;Dúbio;Obtido de sebo animal ou óleos vegetais (coco).
+Ácido palmítico;Dúbio;Obtido de óleo de palma ou fontes animais.
+Ácido ribonucleico;Não Vegano;Extraído de células animais. (Ver RNA).
+Ácido salicílico;Vegano;Derivado de plantas ou produzido sinteticamente.
+Ácido sórbico;Vegano;Obtido de frutas ou produzido sinteticamente.
+Ácido sulfúrico;Vegano;Ácido corrosivo produzido industrialmente.
+Ácido tartárico;Vegano;Orgânico, presente em uvas e subproduto de vinhos.
+Ácido úrico;Dúbio;Derivado da urina animal ou sintético. (Ver Ureia).
+Ácidos graxos;Dúbio;Mistura que pode conter fontes animais ou vegetais.
+Ácidos de Lanolina;Não Vegano;Derivado da lã de ovelhas.
+Gordura de Lã;Não Vegano;Derivado da lã de ovelhas. (Ver Lanolina).
+Cera de Lã;Não Vegano;Derivado da lã de ovelhas. (Ver Lanolina).
+Ácidos nucleicos;Dúbio;Encontrados em todas as células. Confirmar origem vegetal.
+Actinidina;Vegano;Enzima derivada do kiwi.
+Açúcar de Beterraba;Vegano;Derivado da beterraba açucareira.
+Açúcar de Cana;Dúbio;Pode ser filtrado com carvão de osso (comum fora do Brasil).
+Açúcar invertido;Dúbio;Produzido a partir do açúcar comum.
+Adesivos de Cola;Não Vegano;Geralmente contêm gelatina animal bruta.
+Adrenalina;Dúbio;Hormônio animal ou sintético.
+Ágar-ágar;Vegano;Goma de algas marinhas. Ótima substituta para gelatina.
+Alanina;Dúbio;Aminoácido animal ou vegetal.
+Alantoína;Dúbio;Extraída de vacas ou de plantas (confrei/sintética).
+Albúmen;Não Vegano;Proteína da clara do ovo ou leite.
+Albumina;Não Vegano;Proteína da clara do ovo ou leite.
+Alcatrão de hulha;Vegano;Obtido do carvão mineral.
+Alcloxa;Dúbio;Derivado da alantoína.
+Álcoois Triterpenos;Não Vegano;Derivado da Lanolina (ovelha).
+Álcool batil;Não Vegano;De origem animal.
+Álcool cetílico;Dúbio;Originalmente de baleias, hoje derivado do petróleo ou coco.
+Álcool de Lanolina;Não Vegano;Extraído da lã de ovelha.
+Coalho;Não Vegano;Enzima do estômago de bezerros. (Ver Renina).
+Álcool estearílico;Dúbio;Mistura de álcoois que pode vir de baleias ou vegetais.
+Esteróis;Dúbio;Álcoois sólidos de origem animal ou vegetal.
+Álcool graxo de Sebo;Não Vegano;Extraído da gordura bovina.
+Ácido esteárico Animal;Não Vegano;Gordura extraída de carne animal.
+Álcool láurico;Vegano;Produzido a partir de óleo de coco ou petróleo.
+Álcool metílico;Vegano;Metanol sintético.
+Álcool oleico;Não Vegano;Encontrado em óleos de peixe.
+Ocenol;Não Vegano;Encontrado em óleos de peixe.
+Alfa-hidroxiácidos;Dúbio;Podem conter ácido lático animal. Preferir cítrico/salicílico.
+Alginato de Sódio;Vegano;Extraído de algas marrons.
+Almíscar (óleo);Não Vegano;Secreção de genitais de cervos, castores ou civetas.
+Aloe vera;Vegano;Babosa. Planta usada em cosméticos e alimentos.
+Âmbar-cinza;Não Vegano;Vindo do intestino de baleias.
+âmbar de Baleia;Não Vegano;Vindo do intestino de baleias.
+Amerchol;Não Vegano;De origem animal.
+Amerchol L-101;Não Vegano;Derivado de lanolina animal.
+Amida de Sebo;Não Vegano;Derivado de gordura animal.
+Amido;Vegano;Carboidrato vegetal (milho, batata, arroz).
+Amido ceroso;Vegano;Derivado de milho ceroso.
+Amido de milho;Vegano;Derivado de grãos de milho.
+Amido modificado;Vegano;Amido vegetal tratado fisicamente ou quimicamente.
+Amilase;Dúbio;Enzima que pode vir de pâncreas suíno ou de fungos/plantas.
+Amina de Sebo;Não Vegano;Derivado de gordura animal.
+Amina hidrogenada de Sebo;Não Vegano;Derivado de gordura animal.
+PEG-13;Não Vegano;Derivado de gordura animal (sebo).
+Amino-succinato;Dúbio;Derivado do ácido aspártico.
+Aminoácidos;Dúbio;Blocos de proteínas. Podem ser animais ou vegetais.
+Anchova;Não Vegano;Pequeno peixe.
+Angorá;Não Vegano;Pelo de coelho ou cabra angorá.
+Antocianinas;Vegano;Pigmentos naturais de plantas.
+Araquidato Oleico;Não Vegano;Derivado de óleos de peixe.
+Aroma natural;Dúbio;Pode ter origem animal, vegetal ou mineral.
+Artificial;Dúbio;Termo genérico. Confirmar se os componentes são veganos.
+Aspartame;Vegano;Adoçante sintético (NutraSweet).
+Astrakhan;Não Vegano;Pele de cordeiros muito jovens ou natimortos.
+Banha;Não Vegano;Gordura de porco.
+Bauxita;Vegano;Minério de alumínio.
+Benzoato de Sódio;Vegano;Conservante sintético.
+Beta Caroteno;Dúbio;Precursor de Vitamina A. Pode usar gelatina como estabilizador.
+Betaína Estearil;Dúbio;Pode ter origem animal (ácido esteárico).
+Betatene;Vegano;Mistura natural de carotenos de algas marinhas.
+Bicarbonato de Sódio;Vegano;Mineral usado em fermentos e antiácidos.
+Bicarbonato de Amônio;Vegano;Inorgânico usado como agente de crescimento.
+Bílis de boi;Não Vegano;Extraído de bovinos.
+Biotina;Dúbio;Vitamina H. Presente em todas as células. Confirmar origem vegetal.
+Vitmanina H;Dúbio;Vitamina H. Confirmar origem vegetal (Biotina).
+Bitartarato de colina;Dúbio;Pode vir de ovos ou soja/sintético.
+Bitartarato de Potássio;Vegano;Subproduto da fabricação de vinhos (Cremor Tártaro).
+Cremor de tártaro;Vegano;Subproduto da fabricação de vinhos.
+Hidrogeno tartarato de Potássio;Vegano;Subproduto da fabricação de vinhos.
+Bonito;Não Vegano;Peixe parente do atum.
+Bromelina;Vegano;Enzima derivada do abacaxi.
+Butano;Vegano;Gás derivado do petróleo ou gás natural.
+Cabelo de cavalo;Não Vegano;Pelo animal usado em pincéis/colchões.
+Calcário;Vegano;Rocha mineral de origem fóssil.
+Calciferol;Dúbio;Vitamina D. Confirmar se é D2 (vegetal) ou D3 (geralmente animal).
+Cálcio Dissódico EDTA;Vegano;Conservante sintético.
+Camurça;Não Vegano;Couro animal.
+Cantaridina;Não Vegano;Extraída de insetos (moscas espanholas).
+Capiz;Não Vegano;Feito de conchas de moluscos.
+Capril Betaína;Dúbio;Pode vir de leite animal ou óleo de coco.
+Caprilato estearílico;Dúbio;Pode ter origem animal.
+Caracóis;Não Vegano;Moídos em alguns cosméticos.
+Caramelo;Dúbio;Geralmente vegetal (milho), mas pode usar açúcar filtrado com osso.
+Carbamida;Dúbio;Sintética ou animal (urina). (Ver Ureia).
+Carbonato de Cálcio;Dúbio;Mineral ou derivado de conchas/ossos/ovos.
+Carbonato de Sódio;Vegano;Sal de Sódio mineral.
+Carboximetilcelulose (CMC);Vegano;Derivado da celulose vegetal.
+Carmim;Não Vegano;Corante vermelho de insetos esmagados (Cochonilha).
+Cochonilha;Não Vegano;Corante vermelho de insetos esmagados.
+Estearil Octanoato;Dúbio;Pode ter origem animal.
+Caroteno;Vegano;Pigmento vegetal (cenoura/algas) ou sintético.
+Carvão;Dúbio;Pode ser de madeira ou de ossos animais.
+Carvão de osso;Não Vegano;Cinzas de ossos animais usadas em filtros e açúcar.
+Carvão vegetal;Dúbio;Pode conter gorduras animais na queima.
+Caseína;Não Vegano;Proteína principal do leite animal.
+Caseínatos;Não Vegano;Derivados da proteína do leite.
+Caseinato de Potássio;Não Vegano;De origem animal (leite).
+Caseinogênio;Não Vegano;De origem animal (leite).
+Cashmere;Não Vegano;Lã de cabra Cashmira.
+Castóreo;Dúbio;Secreção de castor, mas hoje geralmente sintética.
+Catalase;Dúbio;Enzima do fígado bovino ou de fungos.
+Catgut;Não Vegano;Fibra de intestinos de animais para suturas.
+Caviar;Não Vegano;Ovas de peixe.
+Celulose;Vegano;Fibra vegetal (madeira ou algodão).
+Cera;Dúbio;Pode ser animal (abelha/lanolina) ou vegetal (soja/frutas).
+Cera de Abelha;Não Vegano;Cera produzida por abelhas. (Cera Flava).
+Favos de mel;Não Vegano;Estrutura produzida por abelhas.
+Cera de Candelilla;Vegano;Cera de origem vegetal.
+Cera de Carnaúba;Vegano;Cera extraída da palmeira carnaúba.
+Cera flava;Não Vegano;Cera de abelha.
+Cerdas de javali;Não Vegano;Pelos de animais usados em escovas.
+Cerebrosídeos;Dúbio;Gorduras de nervos. Podem ser sintéticos ou cerebrais animais.
+Ceteth-2;Não Vegano;Derivado de espermacete de baleia.
+Chamois;Não Vegano;Pele animal (antílope, veado, ovelha).
+Ciclamato;Vegano;Adoçante sintético.
+Ciclamato de Sódio;Vegano;Adoçante sintético.
+Cinamato de metila;Vegano;Derivado sintético.
+Cisteína;Dúbio;Aminoácido que pode vir de pelos animais ou fontes vegetais.
+Cistina;Dúbio;Aminoácido de urina ou crina de cavalo, ou vegetal.
+Citrato estearílico;Dúbio;Pode ter origem animal.
+Civeta;Não Vegano;Secreção de glândulas de gatos-de-algália.
+Cloreto de Cálcio;Vegano;Sal mineral produzido de várias formas sintéticas.
+Cloreto de metila;Vegano;Gás de origem natural ou sintética.
+Cloreto de Potássio;Vegano;Sal mineral de águas oceânicas.
+Cloreto de Sódio;Vegano;Sal de cozinha (marinho ou de mina).
+Cloridrato de Tiamina;Vegano;Vitamina B1 sintética.
+Colágeno;Dúbio;Proteína de tecidos animais ou vegetais modernos.
+Colecalciferol;Dúbio;Vitamina D3. No Brasil, geralmente é animal (lã).
+Colesterina;Não Vegano;Gordura animal (Lanolina).
+Colesterol;Não Vegano;Gordura de tecidos animais ou ovos.
+Coleth24;Não Vegano;Derivado de colesterol animal.
+ColFlo 67;Vegano;Amido de milho ceroso.
+Colorau;Vegano;Urucum. Tintura vegetal.
+Complexo de Vitamina B;Dúbio;Muitas fontes podem ser animais. (Ver Pantenol).
+Condroitina;Não Vegano;Extraída de cartilagem de vacas, tubarões ou porcos.
+Corantes;Dúbio;Podem ser de insetos (Carmim), minerais ou sintéticos.
+Tintas;Dúbio;Podem conter componentes animais.
+Cores;Dúbio;Pigmentos animais, vegetais ou sintéticos.
+Corticosteroide;Dúbio;Hormônio animal ou sintético. (Ver Cortisona).
+Cortisona;Dúbio;Hormônio animal ou sintético.
+Couro;Não Vegano;Pele animal processada.
+Crospovidona;Vegano;Polímero sintético.
+Curcumina;Vegano;Corante natural do açafrão.
+Dashi;Não Vegano;Caldo de peixe japonês.
+DEA-10 oleth fosfato;Não Vegano;De origem animal.
+Desamido colágeno;Dúbio;Ver Colágeno.
+Dexpantenol;Dúbio;Ver Pantenol.
+Dextrina;Vegano;Amido vegetal processado.
+Dicaprilil Cistina;Dúbio;Ver Cistina.
+Dietileno Tricaseínamida;Não Vegano;De origem animal.
+Diglicérideos;Dúbio;Gorduras que podem ser animais ou vegetais.
+DihidroxiAcetona;Vegano;Obtido por ação bacteriana em glicerol vegetal.
+Dihydrocholeth-15;Não Vegano;De origem animal.
+Dihydrocholeth-30;Não Vegano;De origem animal.
+Dimetil Estearamina;Dúbio;Ver Ácido Esteárico.
+Dióxido de enxofre;Vegano;Gás inorgânico.
+DNA;Dúbio;Ácido genético. Geralmente obtido de resíduos de matadouros.
+RNA;Dúbio;Ácido genético. Geralmente obtido de resíduos de matadouros.
+Down;Não Vegano;Penas/Plumas de aves.
+Elastina;Dúbio;Proteína animal (vacas) ou sintética/vegetal.
+Ergocalciferol;Dúbio;Ver Vitamina D.
+Ergosterol;Dúbio;Ver Vitamina D.
+Escamas de peixe;Não Vegano;Usadas em maquiagens para dar brilho.
+Escovas de Zibelina;Não Vegano;Feitas de pele de marta.
+Esmalte;Não Vegano;Frequentemente contém Goma Laca (inseto).
+Verniz Resinoso;Não Vegano;Frequentemente contém Goma Laca (inseto).
+Esponja (Mar);Não Vegano;Animal marinho.
+Esqualano;Não Vegano;Derivado de óleo de fígado de tubarão.
+Esqualeno;Dúbio;Antioxidante animal (tubarão) ou vegetal (oliva).
+Essência de pérola;Não Vegano;Obtida de escamas de peixe.
+Estearamida;Dúbio;Ver Ácido Esteárico.
+Estearamina;Dúbio;Ver Ácido Esteárico.
+Estearato;Dúbio;Ver Ácido Esteárico.
+Estearato de Cálcio;Dúbio;Mineral com ácido esteárico (pode ser animal).
+Estearato de Estearil;Dúbio;Ver Álcool Estearil.
+Estearato Oleico;Dúbio;Ver Ácido Oleico.
+Estearil de Imidazolina;Dúbio;Ver Ácido Esteárico.
+Estearil Dimetil Amina;Dúbio;Ver Álcool Estearílico.
+Estearoil Lactato de Sódio;Dúbio;Ver Ácido Lático.
+Estearona;Dúbio;Ver Ácido Esteárico.
+Estearoxitrimetilsilano;Dúbio;Ver Ácido Esteárico.
+Esteróides;Dúbio;Hormônios animais ou tecidos vegetais/sintéticos.
+Estévia;Vegano;Adoçante natural de folha.
+Stevia;Vegano;Adoçante natural de folha.
+Esteviosídeo;Vegano;Extraído da planta Estévia.
+Glicosídeo de esteviol;Vegano;Extraído da planta Estévia.
+Estradiol;Não Vegano;Hormônio extraído de urina de éguas grávidas.
+Estrogênio;Não Vegano;Hormônio extraído de urina de éguas grávidas.
+Extrato Spleen;Não Vegano;Extraído de baço animal.
+Extrato testicular;Não Vegano;Extraído de testículos animais.
+Farinha de carne e ossos;Não Vegano;Ossos e restos animais triturados.
+Fator Vitamina B;Dúbio;Ver Biotina.
+Favo de mel;Não Vegano;Ver Cera de Abelha.
+Feltro;Não Vegano;Pode conter lã ou pelos animais.
+Fermento de pão;Vegano;Microorganismos (fungos) usados na panificação.
+Ferro;Vegano;Metal mineral.
+Ferro reduzido;Vegano;Ferro mineral usado para fortificar farinhas.
+Ficina;Vegano;Enzima da figueira.
+Fluído amniótico;Não Vegano;Líquido da placenta animal.
+Fonte natural;Dúbio;Pode ser animal ou vegetal. Em cosméticos, geralmente é animal.
+Fontes naturais;Dúbio;Pode ser animal ou vegetal. Em cosméticos, geralmente é animal.
+Fosfato de Cálcio;Dúbio;Mineral ou derivado de ossos.
+Fosfato de osso;Não Vegano;Derivado de ossos animais.
+Fosfato de Sódio;Vegano;Material sintético/mineral.
+Frutose;Vegano;Açúcar de frutas ou milho.
+Gelatina;Não Vegano;Proteína de peles, ossos e tendões de vacas e porcos.
+Geleia real;Não Vegano;Secreção de abelhas para alimentar a rainha.
+Giz;Dúbio;Carbonato de cálcio mineral ou de ossos/conchas.
+Glacê de confeiteiro;Não Vegano;Contém Goma-laca (inseto).
+Glicerídeos;Dúbio;Gorduras que podem ser animais ou vegetais.
+Glicérideos de Sebo;Não Vegano;Derivado de gordura animal.
+Gliceril seboato;Não Vegano;De origem animal.
+PEG-28;Não Vegano;De origem animal.
+Glicerilo;Dúbio;Ver Glicerina.
+Glicerina;Dúbio;Pode vir de gordura animal ou óleos vegetais.
+Glicerol;Dúbio;Pode vir de gordura animal ou óleos vegetais.
+Glicerretinado de Estearilo;Dúbio;Ver Álcool Estearilíco.
+Glicosaminoglicanos Hidrolisados;Não Vegano;De origem animal.
+Glicose tirosinase;Dúbio;Ver Tirosina.
+Glucosamina;Não Vegano;Feita de conchas de crustáceos.
+Glutamato de monosSódio (GMS);Vegano;Produzido por fermentação de melaço/amido.
+Glycreth-26;Dúbio;Ver Glicerina.
+Goma arábica;Vegano;Resina natural da árvore Acácia.
+Goma acácia;Vegano;Resina natural da árvore Acácia.
+Goma carragena;Vegano;Extraída de algas vermelhas.
+Goma xantana;Vegano;Produzida pela fermentação de açúcar de milho.
+Goma-laca;Não Vegano;Secreção resinosa de insetos (Shellac).
+Cobertura resinosa;Não Vegano;Ver Goma-laca.
+Gordura anidra;Não Vegano;Gordura de leite desidratada.
+Gordura anidra de leite;Não Vegano;Gordura de leite desidratada.
+Gordura anidra de manteiga;Não Vegano;Gordura de leite desidratada.
+Gorduras;Não Vegano;Geralmente refere-se a gorduras animais.
+Heptanoato de Estearilo;Dúbio;Ver Álcool Estearilíco.
+Hialuronato de Sódio;Dúbio;Origem animal ou sintética.
+Hide;Não Vegano;Pele animal.
+Hidrazida Esteárica;Dúbio;Ver Ácido Esteárico.
+Hidrocortisona;Dúbio;Ver Cortisona.
+Hidrogenado Laneth-5;Não Vegano;De origem animal.
+Hidróxido de Alumínio;Vegano;Mineral derivado da bauxita.
+Hidróxido de Cálcio;Vegano;Cal apagada. Regulador de acidez mineral.
+Hidróxido de Potássio;Vegano;Obtido pela eletrólise de sais minerais.
+Hidróxido de Sódio;Vegano;Soda cáustica mineral.
+Hidroxipropil celulose;Vegano;Derivado de celulose vegetal.
+Hidroxipropilmetilcelulose (HPMC);Vegano;Substituto vegetal da gelatina para cápsulas.
+Ictiocola;Não Vegano;Gelatina de bexiga de peixe usada em vinhos.
+Cola de peixe;Não Vegano;Gelatina de bexiga de peixe usada em vinhos.
+Imidazolina de Sebo;Não Vegano;Derivado de gordura animal.
+Imidazolina Oleica;Não Vegano;Ver Álcool Oleico.
+Inosinato Dissódico;Dúbio;Pode vir de peixe/carne ou fungos/vegetais.
+Insulina;Dúbio;Geralmente de pâncreas de porco ou sintética (humana).
+Inulina;Vegano;Fibra de raízes vegetais (chicória).
+Isoestearato Batil;Não Vegano;De origem animal.
+Isomerato de glicose;Vegano;Enzima bacteriana usada em xaropes.
+Isomerato de Sacarídeo;Não Vegano;De fonte animal.
+Isopropílico lanolato;Não Vegano;Extraído da lã de ovelha.
+Lã;Não Vegano;Pelo de ovelha.
+Lactase;Vegano;Enzima de fungos usada para digerir lactose.
+Lactato de Cálcio;Dúbio;Sal do ácido lático. Confirmar origem do ácido.
+Lactato ferroso;Dúbio;Ação do ácido lático no ferro.
+Lactoferrina;Não Vegano;Proteína animal.
+Lactose;Não Vegano;Açúcar do leite de mamíferos.
+Laneth;Não Vegano;Derivado da Lanolina (ovelha).
+Lanogene;Não Vegano;Derivado da Lanolina (ovelha).
+Lanoilamina DEA;Não Vegano;Derivado da Lanolina (ovelha).
+Lanolina;Não Vegano;Gordura da lã de ovelha.
+Lanolina Acetilada;Não Vegano;De origem animal (ovelha).
+Lanolina Hidrogenada;Não Vegano;De origem animal (ovelha).
+Lanosterol;Não Vegano;Extraído da lã de ovelha.
+Lauril Éter Sulfato de Sódio (LESS);Vegano;Detergente sintético/vegetal.
+Lauril Sulfato de Sódio (LSS);Vegano;Detergente sintético/vegetal.
+Lecitina;Dúbio;Pode vir de ovos ou de soja/girassol (mais comum).
+Lecitina de soja;Vegano;Gordura extraída da soja.
+Leucina;Não Vegano;Aminoácido de origem animal.
+Levedura;Vegano;Fungos usados em pães e nutrição.
+Levedura de cerveja;Vegano;Subproduto da fermentação de cereais.
+Leveduras lácticas;Não Vegano;De origem animal.
+Linoleato de lanolina;Não Vegano;Derivado da lã de ovelha.
+Lipase;Não Vegano;Enzima do estômago de bezerros ou porcos.
+Lipídios;Dúbio;Gorduras animais ou óleos vegetais.
+Lipoides;Dúbio;Gorduras animais ou óleos vegetais.
+Lipoxigenase;Vegano;Enzima derivada da soja.
+Lisina;Dúbio;Aminoácido animal ou vegetal.
+Louro;Vegano;Planta (folhas e bagas).
+Magnésio Lanolato;Não Vegano;Ácido graxo da lã de ovelha.
+Maionese;Dúbio;Geralmente contém ovos. Verificar se é a versão vegana.
+Malte;Vegano;Cereal germinado e seco.
+Maltitol;Vegano;Açúcar de cereais.
+Maltodextrina;Vegano;Açúcar de amido vegetal.
+Maltose;Vegano;Açúcar do malte.
+Manitol;Vegano;Açúcar de plantas ou algas.
+Margarina;Dúbio;Base vegetal, mas pode conter leite ou gordura animal.
+Massas em geral;Dúbio;Podem conter ovos.
+Mel;Não Vegano;Alimento produzido por abelhas.
+Menta;Vegano;Planta da família do hortelã.
+Metabissulfito de Sódio;Vegano;Sal inorgânico conservante.
+Metafolin;Vegano;Folato sintético.
+Metanol;Vegano;Álcool sintético.
+Metilcelulose;Vegano;Espessante vegetal sintético.
+Metionina;Dúbio;Aminoácido de ovos/leite ou sintético.
+Metoxicinamato de octila;Vegano;Filtro solar sintético.
+Miristato de isopropila;Dúbio;Ver Ácido Mirístico.
+Miristato Oleico;Dúbio;Ver Ácido Mirístico.
+Miristil éter sulfato;Dúbio;Ver Ácido Mirístico.
+Miristilo;Dúbio;Ver Ácido Mirístico.
+Mohair;Não Vegano;Lã de cabra angorá.
+Monoglicerídeos;Dúbio;Emulsificantes que podem ser animais ou vegetais.
+Monolaurato de sorbitana;Vegano;Derivado vegetal (Span 20).
+Mononitrato de tiamina;Vegano;Vitamina B1 sintética.
+Monopalmitato de sorbitana;Vegano;Derivado vegetal (Span 40).
+Morruato Etil;Não Vegano;De origem animal.
+Músculos;Não Vegano;Carne animal.
+NutraSweet;Vegano;Aspartame (adoçante sintético).
+Octilo Dodecanol;Dúbio;Mistura de álcoois. Ver Álcool Estearílico.
+Octinoxato;Vegano;Filtro solar sintético.
+Okala;Não Vegano;Caldo de peixe japonês.
+Oleato Oleico;Não Vegano;Ver Ácido Oleico.
+Oleil lanolato;Não Vegano;De origem animal.
+Oleílico;Não Vegano;Ver Álcool Oleico.
+Óleo de algodão;Vegano;Óleo de sementes de algodão.
+Óleo de Emu;Não Vegano;Extraído de aves australianas.
+Óleo de fígado de bacalhau;Não Vegano;Óleo de peixe.
+Óleo de fígado de peixe;Não Vegano;Fonte animal de vitaminas.
+Óleo de fígado de tubarão;Não Vegano;Fonte de esqualeno animal.
+Óleo de Marta;Não Vegano;Gordura de martas (vison).
+Óleo de Menhaden;Não Vegano;Óleo de peixe.
+Óleo de peixe;Não Vegano;Gordura de animais marinhos.
+Óleo de rícino;Vegano;Óleo da planta mamona.
+Óleo de tartaruga;Não Vegano;Extraído de tartarugas marinhas.
+Óleo flétan;Não Vegano;Fígado de peixe.
+Óleo marinho;Não Vegano;Gordura de peixes ou baleias.
+Óleo mineral branco;Vegano;Derivado do petróleo.
+Óleo Purcellin;Não Vegano;De origem animal.
+Óleos;Dúbio;Podem ser animais, vegetais ou minerais.
+Óleos e gorduras animais;Não Vegano;Gorduras extraídas de tecidos animais.
+Oleosterina;Não Vegano;De origem animal.
+Olestra;Dúbio;Gordura artificial. Confirmar origem dos ácidos graxos.
+Oleth-2;Não Vegano;Derivado de gordura animal.
+Oleil Betaína;Não Vegano;Derivado de gordura animal.
+Outras vitaminas;Dúbio;Muitas fontes podem ser animais (Biotina, Riboflavina).
+Oxibenzona;Vegano;Filtro solar sintético.
+Óxido de Caprilamina;Dúbio;Ver Ácido Caprílico.
+Óxido de propileno;Vegano;Derivado do petróleo.
+propeno;Vegano;Derivado do petróleo.
+Óxido estearamina;Dúbio;Ver Álcool Estearílico.
+Palmitamida;Dúbio;Ver Ácido Palmítico.
+Palmitamina;Dúbio;Ver Ácido Palmítico.
+Palmitato;Dúbio;Ver Ácido Palmítico.
+Palmitato Ascorbilo;Dúbio;Pode ter origem animal.
+Palmitato de cetilo;Não Vegano;Gordura de baleia. (Ver Espermacete).
+Óleo de Cachalote;Dúbio;Originalmente de baleias, hoje geralmente petróleo.
+Palmitato de isopropila;Dúbio;Pode ter origem animal. Ver Ácido Esteárico.
+Pantenil;Dúbio;Ver Pantenol.
+Pantenol;Dúbio;Pode ser sintético, animal ou vegetal (Vitamina B5).
+ProVitamina B-5;Dúbio;Ver Pantenol.
+Papaína;Vegano;Enzima do mamão verde.
+Papel encerado;Dúbio;Pode conter parafina (ok) ou sebo animal.
+Paracaseína;Não Vegano;Derivado da proteína do leite (caseína).
+Parafina;Vegano;Cera mineral derivada do petróleo/madeira.
+Propionato Araquidílico;Dúbio;Gordura animal ou vegetal (amendoim).
+E585;Dúbio;Lactato ferroso.
+Pectina;Vegano;Gelificante de cascas de frutas (maçã/cítricos).
+Pele bovina;Não Vegano;Couro animal.
+Pele de animais;Não Vegano;Peles de martas, raposas ou coelhos.
+Pele de carneiro;Não Vegano;Couro animal.
+Pele de jacaré;Não Vegano;Couro animal.
+Pêlos de animais;Não Vegano;Usados em pincéis e tecidos.
+Pena;Não Vegano;Penas de aves (ganso/pato).
+Pluma de ganso;Não Vegano;Penas de aves.
+Penas;Não Vegano;Penas de aves.
+Plumas;Não Vegano;Penas de aves.
+Pepsina;Não Vegano;Enzima do estômago de porcos.
+Pérola;Não Vegano;Produzida por moluscos.
+Petróleo;Vegano;Combustível fóssil mineral.
+Pirofosfato de Sódio;Vegano;Sintético usado em cremes dentais.
+Pirofosfato tetrassódico;Vegano;Sintético usado em alimentos.
+Fosfato de tetrasSódio;Vegano;Sintético usado em alimentos.
+Pó de seda;Não Vegano;Obtido do bicho da seda.
+Seda;Não Vegano;Fibra do casulo do bicho da seda.
+Sericina;Não Vegano;Proteína da seda.
+Pólen;Dúbio;Pode ser colhido por abelhas ou diretamente das plantas.
+Poliamina de sebo;Não Vegano;De origem animal.
+PEG-15;Não Vegano;De origem animal.
+Polietileno;Vegano;Plástico derivado do petróleo.
+Polietileno de glicerol;Dúbio;Ver Glicerina.
+Glicol;Dúbio;Ver Glicerina.
+PEG;Dúbio;Ver Glicerina.
+PEG-\;Dúbio;Ver Glicerina.
+Poligliceril-2 Lanolina Álcool de Éter;Não Vegano;De origem animal.
+Poliglicerol;Dúbio;Ver Glicerina.
+Polipeptídeos;Dúbio;Ver DNA/RNA.
+Polissorbatos;Dúbio;Derivados de ácidos graxos (podem ser animais).
+Polivinilpirrolidona (PVP);Vegano;Polímero sintético.
+Pristano;Dúbio;Tubarão ou óleos vegetais.
+Produtos de Abelhas;Não Vegano;Qualquer item feito por abelhas (mel, cera, etc).
+Progesterona;Dúbio;Hormônio animal ou sintético.
+Propileno;Vegano;Gás derivado do petróleo.
+Propilparabeno;Vegano;Conservante sintético.
+E120;Não Vegano;Carmim / Cochonilha (inseto).
+Própolis;Dúbio;Resina colhida por abelhas.
+Protease;Dúbio;Enzima animal, vegetal ou fúngica.
+Proteína animal benziltrimônio hidrolisada;Não Vegano;De origem animal.
+Proteína animal hidrolisada;Não Vegano;De origem animal.
+Proteína Animal Isotérica Hidrolisada AMPD;Não Vegano;De origem animal.
+Proteína de Polipéptidos de Placenta;Não Vegano;Extraída da placenta animal.
+Proteína do leite;Não Vegano;Proteína animal (soro ou caseína).
+Proteína do Egg;Não Vegano;Proteína da clara/gema do ovo.
+ProVitamina A;Dúbio;Ver Caroteno.
+ProVitamina A. Beta-caroteno;Dúbio;Pigmento vegetal ou animal.
+ProVitamina D-2;Dúbio;Ver Vitamina D.
+Quaternium 27;Não Vegano;Derivado de sebo animal.
+Queratina;Dúbio;Proteína de chifres, penas e pelos animais ou vegetal moderna.
+Quimosina;Não Vegano;Enzima do estômago de bezerros (Renina).
+Quimotripsina;Não Vegano;Enzima do pâncreas bovino.
+Quitina;Não Vegano;Cascas de insetos e crustáceos.
+Quitosano;Não Vegano;Derivado de cascas de crustáceos.
+Reticulina;Dúbio;Proteína estrutural de músculos animais.
+Retinol;Não Vegano;Vitamina A de fonte animal.
+Ricinoleato de Lanolina Acetilada;Não Vegano;De origem animal.
+Sacarídeo Hidrolisado;Não Vegano;De origem animal.
+Sucarina;Vegano;Adoçante sintético.
+Sangue;Não Vegano;Tecido animal.
+Sebo;Não Vegano;Gordura animal rígida (rins).
+Sebo Aminopropilamina;Não Vegano;De origem animal.
+PEG-3;Não Vegano;De origem animal (sebo).
+Seboato;Não Vegano;Derivado de sebo animal.
+PEG-20;Não Vegano;Derivado de sebo animal.
+Seboato de Sódio;Não Vegano;Derivado de sebo animal.
+Sintético;Dúbio;Produzido em laboratório, mas pode usar matéria animal.
+Sódio Metil Oleoil Taurato;Não Vegano;De origem animal.
+Sódio N-metil-N-oleil Taurtate;Não Vegano;De origem animal.
+Sódio, Proteína animal hidrolisada TEA-Lauroyl;Não Vegano;Fonte animal.
+Sorbato de Potássio;Vegano;Conservante sintético/mineral.
+Sorbitano Lanolato;Não Vegano;De origem animal.
+PEG-40;Não Vegano;De origem animal.
+Sorbitol;Vegano;Açúcar de frutas ou milho.
+Soro de leite;Não Vegano;Líquido do leite animal (Whey).
+Substâncias Duodeno;Não Vegano;Tratos digestivos de vacas/porcos.
+Sucralose;Vegano;Adoçante sintético.
+Sulfato de Alumínio;Vegano;Mineral inorgânico.
+Sulfato de Alumínio de Sódio;Vegano;Sintético regulador de acidez.
+Sulfato de Sódio;Vegano;Sal mineral inorgânico.
+Sulfato ferroso;Vegano;Sal de ferro mineral.
+Sunete;Vegano;Ver Acesulfame.
+Talloweth-6;Não Vegano;Derivado de sebo animal.
+E572;Dúbio;Estearatos de magnésio ou cálcio.
+Terbutil Hidroquinona (TBHQ);Vegano;Conservante sintético (petróleo).
+Butil Hidroquinona Terciária;Vegano;Conservante sintético (petróleo).
+Tirosina;Dúbio;Aminoácido de leite ou vegetal/sintético.
+Tocoferóis;Vegano;Vitamina E vegetal (soja/girassol).
+Tolueno;Vegano;Derivado do petróleo.
+Treonina;Dúbio;Aminoácido animal ou vegetal.
+Triglicérides do Ácido Caprílico;Dúbio;Leite animal ou coco.
+Trilaneth-4 Fosfato;Não Vegano;De origem animal.
+Tumérico;Vegano;Erva (cúrcuma).
+Undecilenato de Sódio;Não Vegano;De origem animal.
+Ureia;Dúbio;Geralmente sintética, mas pode vir da urina animal.
+Ureia Imidazolidinil;Dúbio;Ver Ureia.
+Velino;Não Vegano;Pele de bezerros/cordeiros.
+Veludo;Dúbio;Pode ser seda (animal) ou sintético (rayon/nylon).
+Violeta manganês;Dúbio;Mineral, vegetal ou animal.
+CI 77742;Dúbio;Mineral, vegetal ou animal.
+Vitamina A;Dúbio;Fígado de peixe, gema ou cenouras/sintéticos.
+Vitamina B12;Dúbio;Bactérias ou origem animal. Veganos devem suplementar.
+Vitamina D;Dúbio;D2 (vegetal) ou D3 (geralmente lã de ovelha).
+Vitamina D2;Vegano;Fonte vegetal (ergocalciferol).
+Vitamina D3;Dúbio;Geralmente de lã de ovelha. Há versões de líquen (raras).
+Vitamina E;Vegano;Extraída de óleos vegetais.
+Whey;Não Vegano;Proteína do soro do leite animal.
+Xarope de milho;Vegano;Açúcar de amido de milho.
+Xarope de milho de alta frutose (XMAF);Vegano;Açúcar de milho processado.
+Xylitol;Vegano;Adoçante de vegetais ou fungos.
+Xilitol;Vegano;Adoçante de vegetais ou fungos.
+E100;Vegano;Curcumina (Açafrão).
+E101;Dúbio;Riboflavina (Vitamina B2). Confirmar origem.
+E102;Dúbio;Tartrazina. Corante sintético, pode ser testado em animais.
+E104;Dúbio;Amarelo de quinoleína. Corante sintético.
+E110;Dúbio;Amarelo crepúsculo. Corante sintético.
+E122;Vegano;Azorrubina (corante sintético).
+E124;Vegano;Ponceau 4R (corante sintético).
+E129;Dúbio;Vermelho 40 (sintético).
+E133;Dúbio;Azul brilhante (sintético).
+E150a;Dúbio;Caramelo simples. Ver origem do açúcar.
+E150b;Dúbio;Caramelo cáustico. Ver origem do açúcar.
+E150c;Dúbio;Caramelo amoníaco. Ver origem do açúcar.
+E150d;Dúbio;Caramelo de sulfito. Ver origem do açúcar.
+E153;Dúbio;Carvão vegetal ou animal.
+E160a;Dúbio;Caroteno. Pode usar gelatina.
+E160b;Vegano;Colorau (Urucum).
+E160c;Vegano;Extrato de paprika.
+E162;Vegano;Vermelho beterraba.
+E163;Vegano;Antocianinas vegetais.
+E170;Dúbio;Carbonato de cálcio (mineral ou osso).
+E200;Vegano;Ácido sórbico.
+E202;Vegano;Sorbato de potássio.
+E211;Vegano;Benzoato de sódio.
+E223;Vegano;Metabissulfito de sódio.
+E270;Dúbio;Ácido lático.
+E296;Vegano;Ácido málico.
+E300;Vegano;Ácido ascórbico (Vitamina C).
+E315;Vegano;Ácido eritórbico.
+E322;Dúbio;Lecitina (soja ou ovo).
+E325;Dúbio;Lactato de sódio.
+E326;Dúbio;Lactato de potássio.
+E327;Dúbio;Lactato de cálcio.
+E341;Dúbio;Fosfato de cálcio.
+E375;Dúbio;Vitamina B3.
+E385;Vegano;EDTA Cálcio dissódico.
+E406;Vegano;Ágar-Ágar.
+E407;Vegano;Goma carragena.
+E412;Vegano;Goma guar.
+E415;Vegano;Goma xantana.
+E420;Vegano;Sorbitol.
+E421;Vegano;Manitol.
+E422;Dúbio;Glicerina / Glicerol.
+E431;Dúbio;Estearato polioxietileno.
+E432;Dúbio;Polissorbato 20.
+E433;Dúbio;Polissorbato 80.
+E434;Dúbio;Polissorbato 40.
+E435;Dúbio;Polissorbato 60.
+E436;Dúbio;Polissorbato 65.
+E441;Não Vegano;Gelatina animal.
+E470a;Dúbio;Sais de ácidos graxos.
+E470b;Dúbio;Sais de magnésio de ácidos graxos.
+E471;Dúbio;Mono e diglicéridos.
+E472a;Dúbio;Ésteres de ácidos graxos.
+E473;Dúbio;Ésteres de sacarose de ácidos graxos.
+E476;Vegano;Polirricinoleato de poliglicerol (Mamona).
+E481;Dúbio;Estearoil lactilato de sódio.
+E482;Dúbio;Estearoil lactilato de cálcio.
+E483;Dúbio;Tartarato de estearilo.
+E491;Dúbio;Monoestearato de sorbitana.
+E492;Dúbio;Triestearato de sorbitana.
+E493;Vegano;Monolaurato de sorbitana.
+E494;Dúbio;Monooleato de sorbitana.
+E495;Vegano;Monopalmitato de sorbitana.
+E507;Vegano;Ácido clorídrico.
+E508;Vegano;Cloreto de potássio.
+E521;Vegano;Sulfato de alumínio de sódio.
+E526;Vegano;Hidróxido de cálcio.
+E542;Não Vegano;Fosfato de osso animal.
+E570;Dúbio;Ácido esteárico.
+E621;Vegano;Glutamato monossódico (GMS).
+E631;Dúbio;Inosinato dissódico.
+E640;Dúbio;Glicina.
+E901;Não Vegano;Cera de abelha.
+E902;Vegano;Cera de candelilla.
+E903;Vegano;Cera de carnaúba.
+E904;Não Vegano;Goma-laca (inseto).
+E910;Dúbio;L-cisteína.
+E913;Não Vegano;Lanolina (ovelha).
+E920;Dúbio;Cloridrato de L-cisteína.
+E950;Vegano;Acesulfame.
+E952;Vegano;Ciclamato de sódio.
+E1201;Vegano;Polivinilpirrolidona.
+E1400;Vegano;Dextrina.

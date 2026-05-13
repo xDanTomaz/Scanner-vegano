@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethoscan</title>
+   
+    <link rel="icon" type="image/jpeg" href="mini_logo.png">  <!-- PARA A LOGO PEQUENA -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- LOGO ATUALIZADA -->
+        <header style="text-align: center; margin-bottom: 20px;">
+            <img src="logo.jpg" alt="Ethoscan Logo" style="max-width: 280px; width: 85%; height: auto;">
+        </header>
+
+        <p style="font-size: 20px; font-weight: bold; margin-bottom: 5px;">Escaneador de ingredientes</p>
+        <p style="margin-bottom: 20px;">Aponte a câmera para a lista de ingredientes</p>
+
+        <div class="camera-box" id="container-preview">
+            <div id="instrucoes" class="instrucoes-container">
+                <div class="icon">📸</div>
+                <h3>Como tirar a melhor foto:</h3>
+                <ul>
+                    <li>Mantenha o celular a uns **15cm** de distância.</li>
+                    <li>Aguarde o **foco automático** estabilizar.</li>
+                    <li>Foque centralizando a palavra **"INGREDIENTES"**.</li>
+                    <li>Evite sombras e reflexos sobre o texto.</li>
+                </ul>
+            </div>
+
+            <video id="video" autoplay playsinline style="display:none;"></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <img id="foto-preview" src="" alt="Foto do rótulo" style="display:none;">
+        </div>
+
+        <div class="controls">
+            <button id="btn-scan" class="btn">Abrir Câmera</button>
+            <button id="btn-capture" class="btn" style="display:none;">Tirar Foto</button>
+            
+            <div style="margin-top: 15px;">
+                <label for="file-upload" class="btn-alt">Escolher da Galeria</label>
+                <input type="file" id="file-upload" accept="image/*" style="display:none;">
+            </div>
+        </div>
+
+        <div id="status" class="resultado">Aguardando comando...</div>
+
+        <div style="font-size: 0.72em; color: #666; margin-top: 35px; border-top: 1px solid #eee; padding-top: 15px; text-align: left; line-height: 1.4;">
+            <strong>⚠️ AVISO IMPORTANTE:</strong><br>
+            Este site utiliza inteligência de leitura (Google Vision), sujeita a falhas. O resultado "PRODUTO VEGANO" não é um certificado oficial. Sempre confira os ingredientes manualmente e procure pelo selo vegano oficial. Não nos responsabilizamos por escolhas feitas com base no scanner.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
