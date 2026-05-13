@@ -846,3 +846,50 @@ ul {
         right: 0px;
     }
 }
+
+/* ==========================================
+   AJUSTE DOS BOTÕES DE DIRECIONAMENTO (CTA)
+   ========================================== */
+
+/* Botão da Navbar (Canto Superior Direito) */
+.nav-cta a {
+    background-color: var(--primary-green); /* Verde Escuro do projeto */
+    color: #FFFFFF !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-cta a:hover {
+    background-color: #043d2e; /* Tom ainda mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 78, 59, 0.2);
+}
+
+/* Botão dentro do Banner Central (Verde Escuro) */
+.banner-action a {
+    background-color: #FFFFFF; /* Fundo branco para contrastar com o verde do banner */
+    color: var(--primary-green) !important; /* Texto em verde escuro */
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.banner-action a:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajuste de ícones dentro dos botões */
+.banner-action a i {
+    width: 20px;
+    height: 20px;
+}
