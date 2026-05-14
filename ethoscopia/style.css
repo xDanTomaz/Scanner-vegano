@@ -29,6 +29,40 @@ body {
     text-align: center;
 }
 
+/* Container do topo para alinhar o botão */
+.nav-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+/* Estilo do botão Home */
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a3d1a; /* Verde escuro do seu projeto */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    transition: all 0.2s ease;
+}
+
+.btn-home:hover {
+    background-color: #e5e7eb;
+    transform: translateX(-3px); /* Leve movimento para a esquerda indicando "voltar" */
+}
+
+.btn-home i {
+    width: 18px;
+    height: 18px;
+}
+
 h1 {
     color: var(--primary-color);
     margin-bottom: 5px;
