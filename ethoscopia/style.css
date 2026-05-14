@@ -43,14 +43,13 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #1a3d1a; /* Verde escuro do seu projeto */
+    color: #1a3d1a; /* Verde escuro */
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
     padding: 8px 12px;
     border-radius: 8px;
-    background-color: #f3f4f6;
-    transition: all 0.2s ease;
+    background-color: #f3f4f6; /* Cor de fundo que faz parecer um botão */
+    border: 1px solid #e5e7eb;
 }
 
 .btn-home:hover {
