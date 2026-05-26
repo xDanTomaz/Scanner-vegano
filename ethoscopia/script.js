@@ -1,6 +1,4 @@
-// ==========================================
-// 1. CONFIGURAÇÕES E ELEMENTOS
-// ==========================================
+// 1. Configurações e variaveis
 const API_KEY = 'AIzaSyBY6nlwbC7vwA5NVkQcrDWrmkIVusFG60I'; 
 
 const video = document.getElementById('video');
@@ -35,7 +33,7 @@ async function carregarBancoDeDados() {
             if (colunas.length >= 3) {
                 return {
                     nome: colunas[0].trim().toUpperCase(),
-                    classificacao: colunas[1].trim().toUpperCase(),
+                    classificacao: colunas[1].trim().toUpperCase(), 
                     descricao: colunas[2].trim()
                 };
             }
@@ -47,7 +45,7 @@ async function carregarBancoDeDados() {
     }
 }
 
-// 3. Integração Google Vision
+// 3. Integração com o Google Vision
 async function analisarComGoogleVision(base64Image) {
     status.innerHTML = `<div class="spinner"></div> Analisando composição...`;
     const content = base64Image.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
@@ -72,13 +70,11 @@ async function analisarComGoogleVision(base64Image) {
     }
 }
 
-// ==========================================
-// 4. LÓGICA DE PROCESSAMENTO E PRIORIZAÇÃO
-// ==========================================
+// Lógica do processamento e priorização dos ingredientes
 function processarIngredientes(texto) {
     const textoLimpo = normalizarParaBusca(texto);
     
-    // 🛡️ A. LOCALIZAR O INÍCIO (Ignora Tabela Nutricional acima)
+    // localizar o início da lista de ingredientes 
     const marcadorInicio = "INGREDIENTES";
     const indiceInicio = textoLimpo.indexOf(marcadorInicio);
 
@@ -89,7 +85,7 @@ function processarIngredientes(texto) {
 
     let textoFocado = textoLimpo.substring(indiceInicio);
 
-    // 🛡️ B. DEFINIR O FIM DA LEITURA
+    // definir o fim da lista de ingredientes com base em marcadores comuns
     const marcadoresFim = ["CONSERVACAO", "VALOR ENERGETICO", "PRODUZIDO POR", "SAC:", "VALIDADE", "PESO"];
     let indiceFim = textoFocado.length;
     marcadoresFim.forEach(m => {
@@ -98,7 +94,7 @@ function processarIngredientes(texto) {
     });
     textoFocado = textoFocado.substring(0, indiceFim);
 
-    // 🛡️ C. FILTRO DE RUÍDO NUTRICIONAL (LIMPEZA DE TABELA LATERAL)
+    // filtro para remover informações nutricionais e outros dados irrelevantes, focando apenas nos ingredientes
     const termosTabela = ["GORDURAS", "SODIO", "PROTEINAS", "CARBOIDRATOS", "VALOR", "KCAL", "KJ", "PORCAO", "QUANTIDADE", "VD", "%"];
     const linhas = textoFocado.split('\n');
     const textoFinalFiltrado = linhas.map(linha => {
@@ -111,7 +107,7 @@ function processarIngredientes(texto) {
         return linhaLimpa;
     }).join(' ');
 
-    // 🛡️ D. SEPARAÇÃO PARA CONTAMINAÇÃO CRUZADA
+    // filtro para separar os ingredientes reais dos alertas de "pode conter" e "alérgicos", garantindo que o foco principal seja nos ingreedientes listados como "contém"
     const marcadoresAviso = ["PODE CONTER", "ALERGICOS", "TRACOS DE"];
     let pontoDeCorte = textoFinalFiltrado.length;
     marcadoresAviso.forEach(m => {
@@ -123,7 +119,7 @@ function processarIngredientes(texto) {
     const alertasTracos = textoFinalFiltrado.substring(pontoDeCorte);
 
     let encontrados = [];
-  // 🛡️ TRAVA 5: Filtro de Choque (Itens Fatais) - PRIORIDADE MÁXIMA COM BUSCA POR PROXIMIDADE
+  // Filtro de ingredientes criticos (filtro de choque) - a primeira leitura do scannar passa por essa lista de ingredientes
     const fatais = [
         { nome: "LEITE", desc: "Origem animal." },
         { nome: "LACTOSE", desc: "Açúcar do leite." },
@@ -144,18 +140,18 @@ function processarIngredientes(texto) {
         else if (regex.test(alertasTracos)) {
             // Pegamos a posição do ingrediente no texto de alerta
             const indiceIngrediente = alertasTracos.indexOf(f.nome);
-            // Analisamos os 30 caracteres que vem antes dele para achar o gatilho
+            // Analisamos os 50 caracteres que vem antes dele para achar o gatilho
             const contextoAnterior = alertasTracos.substring(Math.max(0, indiceIngrediente - 50), indiceIngrediente);
 
             if (contextoAnterior.includes("PODE CONTER") || contextoAnterior.includes("TRACOS")) {
-                // Se o gatilho mais próximo for "Pode conter" -> CONTAMINAÇÃO
+                // Se o gatilho mais próximo for "Pode conter", significa que o ingrediente pode estar presente devido à contaminação cruzada 
                 encontrados.push({ 
                     nome: f.nome, 
                     classificacao: "CONTAMINACAO", 
                     descricao: `Alerta para alérgicos: Pode conter traços de ${f.nome.toLowerCase()} devido ao processamento.` 
                 });
             } else if (contextoAnterior.includes("CONTEM") || contextoAnterior.includes("DERIVADOS")) {
-                // Se o gatilho mais próximo for "Contém" -> NÃO VEGANO
+                // Se o gatilho mais próximo for "Contém", significa que o ingrediente está presente na composição do produto
                 encontrados.push({ 
                     nome: f.nome, 
                     classificacao: "NAO VEGANO", 
@@ -164,7 +160,7 @@ function processarIngredientes(texto) {
             }
         }
     });
-    // 🛡️ TRAVA 6: Comparação com CSV (Apenas se o item ainda não foi encontrado)
+    // Comparação com CSV (Apenas se o item ainda não foi encontrado)
     bancoDadosVegano.forEach(item => {
         const nomeCSV = normalizarParaBusca(item.nome);
         const regexCSV = new RegExp(`\\b${nomeCSV}\\b`, 'gi');
@@ -183,9 +179,7 @@ function processarIngredientes(texto) {
     exibirResultadoVeredito(encontrados, ingredientesReais);
 }
 
-// ==========================================
-// 5. EXIBIÇÃO FINAL E HIERARQUIA VISUAL
-// ==========================================
+// exibição do resultado final para o usuário, com o selo de classificação final e cards detalhados para cada ingrediente encontrado
 function exibirResultadoVeredito(lista, textoExibicao) {
     const limpar = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase() : "";
 
@@ -235,9 +229,7 @@ function exibirResultadoVeredito(lista, textoExibicao) {
     status.innerHTML = htmlHeader + htmlSelo + htmlCards;
 }
 
-// ==========================================
-// 6. EVENTOS E CONTROLE DE CÂMERA (FOCO)
-// ==========================================
+// Eventos e controles de camera
 btnScan.addEventListener('click', async () => {
     // CORREÇÃO: Esconde a foto anterior para a câmera ocupar o espaço todo
     fotoPreview.style.display = "none";
