@@ -1,5 +1,9 @@
 # 🌱 EthoScan — Leitor Inteligente de Ingredientes
 
+### 🌐 Teste a aplicação online
+Clique no link abaixo para aceder e testar o scanner diretamente no seu navegador ou telemóvel:
+👉 **[Aceder ao EthoScan no Vercel](https://SEU-LINK-DO-VERCEL.vercel.app)**
+
 O **EthoScan** é uma aplicação web desenvolvida para analisar rótulos de alimentos através de leitura ótica de caracteres (OCR) e identificar instantaneamente se um produto é adequado para veganos ou se possui alergénicos/contaminação cruzada.
 
 ---
